@@ -4,6 +4,9 @@ A local Choice / Score / Noul service built on KaLM-Reranker-V1-R2. It uses PyTo
 
 The underlying reranker is described in [KaLM-Reranker-V1: Fast but Not Late Interaction for Compressed Document Reranking](https://arxiv.org/abs/2606.22807).
 
+- **Demo:** Try KaLM-Jev in the [Hugging Face Space](https://huggingface.co/spaces/Yuki131/KaLM-Jev).
+- **Models:** Explore the available checkpoints in the [Lychee KaLM Reranker collection](https://huggingface.co/collections/KaLM-Embedding/lychee-kalm-reranker).
+
 ## Installation and quick start
 
 Requires Python 3.10+. Run the following commands from the repository root. Tested dependency versions are listed in [requirements.txt](requirements.txt). GPU users should install a PyTorch build compatible with their device and driver. No specific Conda environment or CUDA library path is required.
