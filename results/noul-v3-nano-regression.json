@@ -1,0 +1,3248 @@
+{
+  "template_version": "v3-noul-state-document",
+  "identity": {
+    "model": "kalm-jev-nano",
+    "revision": null,
+    "encoder_implementation": "native-r2-v1",
+    "document_template": "Document-v1",
+    "document_max_length": 1024,
+    "dtype": "torch.bfloat16",
+    "chunk_size": 4,
+    "transformers": "5.3.0",
+    "torch": "2.8.0+cu129",
+    "device": "cuda",
+    "repository": "KaLM-Embedding/KaLM-Reranker-V1-Nano-R2",
+    "files": {
+      "config.json": {
+        "size_bytes": 6104,
+        "sha256": "75926d34f90b64a3119e62535211bcd2305e8ea0ae4339773cb20dc84c8991d4"
+      },
+      "config_sentence_transformers.json": {
+        "size_bytes": 341,
+        "sha256": "cc976b42f51468317847c6d5a6ebd1531eeb85c61cf924310d093ee23fec002f"
+      },
+      "generation_config.json": {
+        "size_bytes": 190,
+        "sha256": "43e408f6617d77454167c6c345452ba55d5bc145dcde9ed9ec9db59266756d2d"
+      },
+      "kalm_cross_encoder.py": {
+        "size_bytes": 10752,
+        "sha256": "5307c25736f4be12c063b101d3fb2d3e7d23f6bb2124371412b66d5b26c23e3d"
+      },
+      "kalm_cross_encoder_config.json": {
+        "size_bytes": 263,
+        "sha256": "d3a90bd0b540b0792f32795a7adb327dded2367fdac253c2be2ee457ac2da44c"
+      },
+      "kalm_reranker.py": {
+        "size_bytes": 11253,
+        "sha256": "602784137f45a6b3f111bd89f7ad21719c127773d1a1fdccf63fd89d89dfc8c7"
+      },
+      "kalm_reranker_utils.py": {
+        "size_bytes": 7603,
+        "sha256": "083660647e785f58d73c20680c4e5db7139377101ba07333d6dbf9cafcf20129"
+      },
+      "model.safetensors": {
+        "size_bytes": 1572182264
+      },
+      "modules.json": {
+        "size_bytes": 115,
+        "sha256": "ec2633e5f91d4c924a881ae67fdc592dd422b87822b4e8b3e15cd621bc053053"
+      },
+      "test_sentence_transformers.py": {
+        "size_bytes": 3806,
+        "sha256": "1980f49cae171ff7a8ddd761567605ec28d6cd1a58776ceca57d73069e4d81a8"
+      },
+      "test_transformers.py": {
+        "size_bytes": 4392,
+        "sha256": "50e92f770e4570a583755627e127653cef1d7776a397f39092316ec073045fcc"
+      },
+      "test_vllm_offline.py": {
+        "size_bytes": 587,
+        "sha256": "fc5845ea1a7bf7c5ac1b2adc2130829f48f9047d6281a8e7f10c919831cf0177"
+      },
+      "tokenizer.json": {
+        "size_bytes": 33384387,
+        "sha256": "f5b325224482ec441ec5fbe2a5ac08c3758e0f9605f6e54368e31f736fcfb01d"
+      },
+      "tokenizer_config.json": {
+        "size_bytes": 772,
+        "sha256": "91605e4321058aa54733deaab787f60ea6a71a64906bd871fe6973216e6001f3"
+      }
+    }
+  },
+  "configuration": {
+    "dtype": "bfloat16",
+    "batch_size": 4,
+    "chunk_size": 4,
+    "query_max_length": 8192,
+    "document_max_length": 1024,
+    "decoder_max_length": 9216
+  },
+  "n": 231,
+  "correct": 122,
+  "prediction_mismatches": 0,
+  "max_probability_diff": 0.0,
+  "reference_predictions_sha256": "4aec0ba354c99d9ca0d497e56e4d92de0bfe2088875a70f4d200db4b3241f16f",
+  "note": "All 74 Noul cases contain both criteria; this regression does not measure omitted-criteria behavior.",
+  "cases": [
+    {
+      "task_id": "easy-intent-00",
+      "split": "easy",
+      "probabilities": {
+        "billing_question": 0.04249525933432265,
+        "cancel_order": 0.03976496604964753,
+        "change_address": 0.045059609765412956,
+        "report_damage": 0.04862598941675425,
+        "track_order": 0.8240541754338627
+      },
+      "predicted": "track_order",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-01",
+      "split": "easy",
+      "probabilities": {
+        "billing_question": 0.027738439511259594,
+        "cancel_order": 0.9149897922516194,
+        "change_address": 0.019592814839491483,
+        "report_damage": 0.01808613855813808,
+        "track_order": 0.019592814839491483
+      },
+      "predicted": "cancel_order",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-02",
+      "split": "easy",
+      "probabilities": {
+        "billing_question": 0.03461545080345871,
+        "cancel_order": 0.10662309479770672,
+        "change_address": 0.7636046163954199,
+        "report_damage": 0.02738307542697103,
+        "track_order": 0.06777376257644371
+      },
+      "predicted": "change_address",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-03",
+      "split": "easy",
+      "probabilities": {
+        "billing_question": 0.02381523901218178,
+        "cancel_order": 0.025351189966271937,
+        "change_address": 0.015376273974743213,
+        "report_damage": 0.8936602509118508,
+        "track_order": 0.04179704613495221
+      },
+      "predicted": "report_damage",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-04",
+      "split": "easy",
+      "probabilities": {
+        "billing_question": 0.654648354740245,
+        "cancel_order": 0.15070860865910818,
+        "change_address": 0.04185026916103384,
+        "report_damage": 0.07460617126206108,
+        "track_order": 0.07818659617755189
+      },
+      "predicted": "billing_question",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-05",
+      "split": "easy",
+      "probabilities": {
+        "billing_question": 0.012510980721952971,
+        "cancel_order": 0.02195745497920408,
+        "change_address": 0.018781206516025307,
+        "report_damage": 0.0057728691874236555,
+        "track_order": 0.940977488595394
+      },
+      "predicted": "track_order",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-06",
+      "split": "easy",
+      "probabilities": {
+        "play_music": 0.04315833943436822,
+        "send_message": 0.06086301389450704,
+        "set_alarm": 0.7892835734894014,
+        "turn_off_lights": 0.03691528396953453,
+        "weather": 0.06977978921218891
+      },
+      "predicted": "set_alarm",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-07",
+      "split": "easy",
+      "probabilities": {
+        "play_music": 0.7699097184351438,
+        "send_message": 0.06520415925731192,
+        "set_alarm": 0.04770438198497526,
+        "turn_off_lights": 0.03080026393275255,
+        "weather": 0.0863814763898165
+      },
+      "predicted": "play_music",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-08",
+      "split": "easy",
+      "probabilities": {
+        "play_music": 0.11112514562408547,
+        "send_message": 0.18903024038281743,
+        "set_alarm": 0.17211399248271383,
+        "turn_off_lights": 0.08130089330755245,
+        "weather": 0.4464297282028309
+      },
+      "predicted": "weather",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-09",
+      "split": "easy",
+      "probabilities": {
+        "play_music": 0.06583152222086018,
+        "send_message": 0.34493251345594417,
+        "set_alarm": 0.38630609008805483,
+        "turn_off_lights": 0.05457624881523314,
+        "weather": 0.14835362541990776
+      },
+      "predicted": "set_alarm",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-10",
+      "split": "easy",
+      "probabilities": {
+        "play_music": 0.0025734596314438006,
+        "send_message": 0.003985852249491988,
+        "set_alarm": 0.011354636398092963,
+        "turn_off_lights": 0.9753058886478839,
+        "weather": 0.006780163073087219
+      },
+      "predicted": "turn_off_lights",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-intent-11",
+      "split": "easy",
+      "probabilities": {
+        "play_music": 0.0002771561509411372,
+        "send_message": 0.0004292678440304484,
+        "set_alarm": 0.9965763851806506,
+        "turn_off_lights": 0.0012421276924498615,
+        "weather": 0.0014750631319279386
+      },
+      "predicted": "set_alarm",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-00",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.5544704649604273,
+        "no": 0.4455295350395727
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-01",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.44167300566462553,
+        "no": 0.5583269943353745
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-02",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.523420348936324,
+        "no": 0.47657965106367595
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-03",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.5156199157230156,
+        "no": 0.4843800842769844
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-04",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.48438008427698437,
+        "no": 0.5156199157230157
+      },
+      "predicted": "no",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-05",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.47657965106367595,
+        "no": 0.523420348936324
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-06",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.5467381519846138,
+        "no": 0.45326184801538616
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-07",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.5467381519846138,
+        "no": 0.45326184801538616
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-08",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.5370413867561842,
+        "no": 0.4629586132438158
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-09",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.49023561657398396,
+        "no": 0.509764383426016
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-10",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.5078118642792044,
+        "no": 0.49218813572079556
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-fact-11",
+      "split": "easy",
+      "probabilities": {
+        "yes": 0.4455295350395727,
+        "no": 0.5544704649604273
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-00",
+      "split": "easy",
+      "probabilities": {
+        "bank_transfer": 0.07745863542537827,
+        "cash": 0.07441853185717523,
+        "credit_card": 0.04804821543251233,
+        "paypal": 0.8000746172849342
+      },
+      "predicted": "paypal",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-01",
+      "split": "easy",
+      "probabilities": {
+        "bank_transfer": 0.20732999038747502,
+        "cash": 0.3052192681887027,
+        "credit_card": 0.07026546528620299,
+        "paypal": 0.41718527613761924
+      },
+      "predicted": "paypal",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-02",
+      "split": "easy",
+      "probabilities": {
+        "bank_transfer": 0.5440259368101612,
+        "cash": 0.07420335937018283,
+        "credit_card": 0.05180229346540551,
+        "paypal": 0.32996841035425045
+      },
+      "predicted": "bank_transfer",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-03",
+      "split": "easy",
+      "probabilities": {
+        "high": 0.8494208242302353,
+        "low": 0.041634524293321554,
+        "medium": 0.09756240592082775,
+        "urgent": 0.011382245555615395
+      },
+      "predicted": "high",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-04",
+      "split": "easy",
+      "probabilities": {
+        "high": 0.04456414881345352,
+        "low": 0.8541054786926924,
+        "medium": 0.0891472121628237,
+        "urgent": 0.012183160331030344
+      },
+      "predicted": "low",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-05",
+      "split": "easy",
+      "probabilities": {
+        "high": 0.07763347259033872,
+        "low": 0.07885602189326384,
+        "medium": 0.10694462552008337,
+        "urgent": 0.7365658799963141
+      },
+      "predicted": "urgent",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-06",
+      "split": "easy",
+      "probabilities": {
+        "L": 0.0785287493136635,
+        "M": 0.6890678836395597,
+        "S": 0.07377093291166027,
+        "XL": 0.1586324341351165
+      },
+      "predicted": "M",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-07",
+      "split": "easy",
+      "probabilities": {
+        "L": 0.018358552180744673,
+        "M": 0.004360538351377184,
+        "S": 0.005776774747757187,
+        "XL": 0.971504134720121
+      },
+      "predicted": "XL",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-08",
+      "split": "easy",
+      "probabilities": {
+        "friday": 0.06901073805534905,
+        "monday": 0.054698716318292526,
+        "thursday": 0.7093437462005369,
+        "tuesday": 0.054273047530818144,
+        "wednesday": 0.1126737518950033
+      },
+      "predicted": "thursday",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-09",
+      "split": "easy",
+      "probabilities": {
+        "friday": 0.02934806750781521,
+        "monday": 0.8576762532792322,
+        "thursday": 0.0243304025263029,
+        "tuesday": 0.058365601512622704,
+        "wednesday": 0.030279675174026965
+      },
+      "predicted": "monday",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-10",
+      "split": "easy",
+      "probabilities": {
+        "friday": 0.7493612516432678,
+        "monday": 0.03092983274602875,
+        "thursday": 0.14246052291923306,
+        "tuesday": 0.033969775697169774,
+        "wednesday": 0.0432786169943006
+      },
+      "predicted": "friday",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-extraction-11",
+      "split": "easy",
+      "probabilities": {
+        "bank_transfer": 0.19865365608692917,
+        "cash": 0.11078357372654844,
+        "credit_card": 0.17428702545695846,
+        "paypal": 0.516275744729564
+      },
+      "predicted": "paypal",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-00",
+      "split": "easy",
+      "probabilities": {
+        "convert_currency": 0.01513760910180816,
+        "create_calendar_event": 0.03631323648405907,
+        "get_weather": 0.8797891849708223,
+        "send_email": 0.03010473042065583,
+        "translate_text": 0.03865523902265473
+      },
+      "predicted": "get_weather",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-01",
+      "split": "easy",
+      "probabilities": {
+        "convert_currency": 0.052183604184347254,
+        "create_calendar_event": 0.12915566075860144,
+        "get_weather": 0.09158507754071156,
+        "send_email": 0.6018936986883511,
+        "translate_text": 0.1251819588279887
+      },
+      "predicted": "send_email",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-02",
+      "split": "easy",
+      "probabilities": {
+        "convert_currency": 0.0019040225170880076,
+        "create_calendar_event": 0.9863080823088853,
+        "get_weather": 0.003139202423814996,
+        "send_email": 0.004862091827550375,
+        "translate_text": 0.0037866009226613104
+      },
+      "predicted": "create_calendar_event",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-03",
+      "split": "easy",
+      "probabilities": {
+        "convert_currency": 0.641603231432373,
+        "create_calendar_event": 0.056502370502085515,
+        "get_weather": 0.08482010424511256,
+        "send_email": 0.07722958376850961,
+        "translate_text": 0.1398447100519193
+      },
+      "predicted": "convert_currency",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-04",
+      "split": "easy",
+      "probabilities": {
+        "convert_currency": 0.02898075610107978,
+        "create_calendar_event": 0.025575427493762525,
+        "get_weather": 0.06952121981136654,
+        "send_email": 0.02898075610107978,
+        "translate_text": 0.8469418404927115
+      },
+      "predicted": "translate_text",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-05",
+      "split": "easy",
+      "probabilities": {
+        "convert_currency": 0.004760237088843831,
+        "create_calendar_event": 0.9656461623841154,
+        "get_weather": 0.0137742027335745,
+        "send_email": 0.00889329369765142,
+        "translate_text": 0.006926104095814915
+      },
+      "predicted": "create_calendar_event",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-06",
+      "split": "easy",
+      "probabilities": {
+        "book_restaurant": 0.04000289764551183,
+        "call_taxi": 0.08208061652206615,
+        "get_stock_price": 0.006951461273305117,
+        "search_flights": 0.8552996647577584,
+        "set_reminder": 0.015665359801358508
+      },
+      "predicted": "search_flights",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-07",
+      "split": "easy",
+      "probabilities": {
+        "book_restaurant": 0.9582401347868029,
+        "call_taxi": 0.012445366801338061,
+        "get_stock_price": 0.009692461410492948,
+        "search_flights": 0.011331635423793398,
+        "set_reminder": 0.008290401577572652
+      },
+      "predicted": "book_restaurant",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-08",
+      "split": "easy",
+      "probabilities": {
+        "book_restaurant": 0.07816533939208364,
+        "call_taxi": 0.041109868164784374,
+        "get_stock_price": 0.024934395458686053,
+        "search_flights": 0.030076622053292246,
+        "set_reminder": 0.8257137749311538
+      },
+      "predicted": "set_reminder",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-09",
+      "split": "easy",
+      "probabilities": {
+        "book_restaurant": 0.07710476936903633,
+        "call_taxi": 0.0724332275504931,
+        "get_stock_price": 0.7202080568949996,
+        "search_flights": 0.060049254763145564,
+        "set_reminder": 0.07020469142232547
+      },
+      "predicted": "get_stock_price",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-10",
+      "split": "easy",
+      "probabilities": {
+        "book_restaurant": 0.0026052727752402804,
+        "call_taxi": 0.9873626336234019,
+        "get_stock_price": 0.0010202394778119732,
+        "search_flights": 0.005100876470410287,
+        "set_reminder": 0.0039109776531354185
+      },
+      "predicted": "call_taxi",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "easy-tool_selection-11",
+      "split": "easy",
+      "probabilities": {
+        "book_restaurant": 0.06214760614453739,
+        "call_taxi": 0.0487802149760008,
+        "get_stock_price": 0.024914495927230523,
+        "search_flights": 0.026110167551517634,
+        "set_reminder": 0.8380475154007136
+      },
+      "predicted": "set_reminder",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-01-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9059898203834277,
+        "no": 0.09401017961657232
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-01-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.8848377712685633,
+        "no": 0.11516222873143667
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-02-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9263037302939515,
+        "no": 0.07369626970604848
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-02-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.927099726575378,
+        "no": 0.07290027342462202
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-03-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9334308110294983,
+        "no": 0.06656918897050168
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-03-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9073122213606241,
+        "no": 0.09268777863937594
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-04-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.8998277813740775,
+        "no": 0.10017221862592252
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-04-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.8840392817460332,
+        "no": 0.11596071825396681
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-05-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.8962513731336202,
+        "no": 0.10374862686637976
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-05-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.8723473746782093,
+        "no": 0.12765262532179067
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-06-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9217459165121,
+        "no": 0.07825408348789997
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-policy-06-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9081302185130296,
+        "no": 0.09186978148697045
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-01-0",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.3910928244653772,
+        "change_address": 0.010101611186439386,
+        "other": 0.19060342002641664,
+        "refund": 0.3560940689371088,
+        "status": 0.052108075384658024
+      },
+      "predicted": "cancel",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-01-1",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.43001232626976144,
+        "change_address": 0.007171134522910902,
+        "other": 0.0724258930321887,
+        "refund": 0.45774573858053974,
+        "status": 0.03264490759459925
+      },
+      "predicted": "refund",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-02-0",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.010119283229479813,
+        "change_address": 0.6664351491099183,
+        "other": 0.1558381290476548,
+        "refund": 0.018323654746108746,
+        "status": 0.14928378386683844
+      },
+      "predicted": "change_address",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-02-1",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.01091709580172152,
+        "change_address": 0.1574763510962421,
+        "other": 0.10357852106695248,
+        "refund": 0.009050590305592143,
+        "status": 0.7189774417294917
+      },
+      "predicted": "status",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-03-0",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.03948802884781196,
+        "change_address": 0.19135351072247253,
+        "other": 0.49633324141888463,
+        "refund": 0.07150358289248951,
+        "status": 0.2013216361183413
+      },
+      "predicted": "other",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-03-1",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.008451881167063875,
+        "change_address": 0.7849649286562567,
+        "other": 0.12084941783841524,
+        "refund": 0.016808572765396837,
+        "status": 0.0689251995728674
+      },
+      "predicted": "change_address",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-04-0",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.7184664999531483,
+        "change_address": 0.009331250906517145,
+        "other": 0.09134276505865782,
+        "refund": 0.12881394538782176,
+        "status": 0.052045538693855094
+      },
+      "predicted": "cancel",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-04-1",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.4374173147264261,
+        "change_address": 0.020299072452826764,
+        "other": 0.31753091797003374,
+        "refund": 0.1425644164777531,
+        "status": 0.08218827837296042
+      },
+      "predicted": "cancel",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-05-0",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.02955842991858056,
+        "change_address": 0.023750865682385585,
+        "other": 0.14549169116721822,
+        "refund": 0.738867774175126,
+        "status": 0.06233123905668966
+      },
+      "predicted": "refund",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-05-1",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.01391527669570177,
+        "change_address": 0.011536169568273911,
+        "other": 0.09659116520081082,
+        "refund": 0.8344203394161404,
+        "status": 0.04353704911907319
+      },
+      "predicted": "refund",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-06-0",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.22258564844597295,
+        "change_address": 0.10190713571013447,
+        "other": 0.3341406340457264,
+        "refund": 0.0871657923489469,
+        "status": 0.25420078944921937
+      },
+      "predicted": "other",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-intent-06-1",
+      "split": "original",
+      "probabilities": {
+        "cancel": 0.22591589692014002,
+        "change_address": 0.13884335930871147,
+        "other": 0.24048622045294735,
+        "refund": 0.11359764693707444,
+        "status": 0.2811568763811267
+      },
+      "predicted": "status",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-01-0",
+      "split": "original",
+      "probabilities": {
+        "0": 0.21606929220888607,
+        "1": 0.5692667638391801,
+        "2": 0.10822289073424858,
+        "3": 0.10644105321768528
+      },
+      "predicted": "1",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-01-1",
+      "split": "original",
+      "probabilities": {
+        "0": 0.4234081264808316,
+        "1": 0.22399367210066395,
+        "2": 0.1632383743609745,
+        "3": 0.18935982705753
+      },
+      "predicted": "0",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-02-0",
+      "split": "original",
+      "probabilities": {
+        "0": 0.08308671696854109,
+        "1": 0.4589169331458742,
+        "2": 0.24624097420219668,
+        "3": 0.21175537568338818
+      },
+      "predicted": "1",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-02-1",
+      "split": "original",
+      "probabilities": {
+        "0": 0.0425030964397519,
+        "1": 0.696767603137512,
+        "2": 0.0899790558690449,
+        "3": 0.17075024455369125
+      },
+      "predicted": "1",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-03-0",
+      "split": "original",
+      "probabilities": {
+        "0": 0.1000273660951016,
+        "1": 0.1592201060151354,
+        "2": 0.40499766817638017,
+        "3": 0.33575485971338287
+      },
+      "predicted": "2",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-03-1",
+      "split": "original",
+      "probabilities": {
+        "0": 0.03580213262487845,
+        "1": 0.13832001670694033,
+        "2": 0.4642891202477218,
+        "3": 0.36158873042045936
+      },
+      "predicted": "2",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-04-0",
+      "split": "original",
+      "probabilities": {
+        "0": 0.038346875884042446,
+        "1": 0.037458571460945535,
+        "2": 0.07164139585051749,
+        "3": 0.8525531568044946
+      },
+      "predicted": "3",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-04-1",
+      "split": "original",
+      "probabilities": {
+        "0": 0.11706674168993868,
+        "1": 0.13902019550114023,
+        "2": 0.16769036509389385,
+        "3": 0.5762226977150272
+      },
+      "predicted": "3",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-05-0",
+      "split": "original",
+      "probabilities": {
+        "0": 0.05872496038312885,
+        "1": 0.05872496038312885,
+        "2": 0.5748532874203097,
+        "3": 0.3076967918134327
+      },
+      "predicted": "2",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-05-1",
+      "split": "original",
+      "probabilities": {
+        "0": 0.10236565490428787,
+        "1": 0.1421206372487009,
+        "2": 0.6469708601124013,
+        "3": 0.10854284773460986
+      },
+      "predicted": "2",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-06-0",
+      "split": "original",
+      "probabilities": {
+        "0": 0.006096151194300469,
+        "1": 0.012076378690541423,
+        "2": 0.9262045626991422,
+        "3": 0.05562290741601591
+      },
+      "predicted": "2",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-ordinal-06-1",
+      "split": "original",
+      "probabilities": {
+        "0": 0.002273517404177822,
+        "1": 0.00418163847538183,
+        "2": 0.9917322380104264,
+        "3": 0.0018126061100139945
+      },
+      "predicted": "2",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-01-0",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.28019903885758435,
+        "pickup": 0.11680433725014948,
+        "post": 0.009815253975904563,
+        "unknown": 0.5931813699163616
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-01-1",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.03938054204381871,
+        "pickup": 0.0555354656596797,
+        "post": 0.008786986652969241,
+        "unknown": 0.8962970056435324
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-02-0",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.0041287594412173865,
+        "pickup": 0.002750346721898664,
+        "post": 0.02911058880413998,
+        "unknown": 0.9640103050327439
+      },
+      "predicted": "unknown",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-02-1",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.004629934795398618,
+        "pickup": 0.0017300802330705671,
+        "post": 0.009352725376375812,
+        "unknown": 0.984287259595155
+      },
+      "predicted": "unknown",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-03-0",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.09069184652917192,
+        "pickup": 0.23158974322915424,
+        "post": 0.007591268522013566,
+        "unknown": 0.6701271417196603
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-03-1",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.0813001846981792,
+        "pickup": 0.14268626776627183,
+        "post": 0.004658871672066951,
+        "unknown": 0.7713546758634819
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-04-0",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.012542383845939442,
+        "pickup": 0.12617973597527976,
+        "post": 0.03848264523297127,
+        "unknown": 0.8227952349458095
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-04-1",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.02840172379756421,
+        "pickup": 0.016942890019049386,
+        "post": 0.04394651287247514,
+        "unknown": 0.9107088733109112
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-05-0",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.061802970221876516,
+        "pickup": 0.010409318609981285,
+        "post": 0.019599693437129577,
+        "unknown": 0.9081880177310127
+      },
+      "predicted": "unknown",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-05-1",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.1711851893497322,
+        "pickup": 0.005677414577886879,
+        "post": 0.006458532980206453,
+        "unknown": 0.8166788630921745
+      },
+      "predicted": "unknown",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-06-0",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.19116635696996023,
+        "pickup": 0.010210907665321197,
+        "post": 0.13138658761098151,
+        "unknown": 0.6672361477537371
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-extraction-06-1",
+      "split": "original",
+      "probabilities": {
+        "courier": 0.031966298911790085,
+        "pickup": 0.006806017782418993,
+        "post": 0.012324106086645541,
+        "unknown": 0.9489035772191454
+      },
+      "predicted": "unknown",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-01-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7386690743254897,
+        "no": 0.26133092567451033
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-01-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7981867777396212,
+        "no": 0.2018132222603788
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-02-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7732163651347154,
+        "no": 0.22678363486528463
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-02-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.786622824583395,
+        "no": 0.21337717541660495
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-03-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7772998611746911,
+        "no": 0.22270013882530892
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-03-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7498206999089312,
+        "no": 0.2501793000910688
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-04-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7074047009882609,
+        "no": 0.2925952990117391
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-04-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7162186093168913,
+        "no": 0.2837813906831087
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-05-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9661559646595075,
+        "no": 0.03384403534049252
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-05-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.9518632288833652,
+        "no": 0.048136771116634836
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-06-0",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7505527565366589,
+        "no": 0.24944724346334113
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-adequacy-06-1",
+      "split": "original",
+      "probabilities": {
+        "yes": 0.7626009092335494,
+        "no": 0.2373990907664506
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-01-0",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.02515639049725329,
+        "coding_agent": 0.8867933329252669,
+        "document": 0.022905154202671352,
+        "general": 0.03485804073116919,
+        "math": 0.014788679058558398,
+        "tools": 0.015498402585081006
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-01-1",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.0173084933712096,
+        "coding_agent": 0.8877563523342915,
+        "document": 0.016775967014089843,
+        "general": 0.038701750336322595,
+        "math": 0.013065136247353226,
+        "tools": 0.02639230069673314
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-02-0",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.024526053771129524,
+        "coding_agent": 0.8445453808514815,
+        "document": 0.03149207641318054,
+        "general": 0.048775882115635355,
+        "math": 0.01022398030977675,
+        "tools": 0.04043662653879634
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-02-1",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.026157584703471362,
+        "coding_agent": 0.8696105297636748,
+        "document": 0.026673496833808187,
+        "general": 0.02428649524141989,
+        "math": 0.012599667748934344,
+        "tools": 0.040672225708691355
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-03-0",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.004475675154754496,
+        "coding_agent": 0.9855387667105151,
+        "document": 0.0032363251169330457,
+        "general": 0.0027573834726410226,
+        "math": 0.000987023394611383,
+        "tools": 0.003004826150544826
+      },
+      "predicted": "coding_agent",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-03-1",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.0027641223044627197,
+        "coding_agent": 0.9840957054988718,
+        "document": 0.0033866734417890496,
+        "general": 0.004181983493687131,
+        "math": 0.0011888341892230742,
+        "tools": 0.0043826810719661945
+      },
+      "predicted": "coding_agent",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-04-0",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.013803341198281019,
+        "coding_agent": 0.8810907941413946,
+        "document": 0.03311249417475453,
+        "general": 0.038712427738385784,
+        "math": 0.005936743072306841,
+        "tools": 0.027344199674877244
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-04-1",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.012372957135763913,
+        "coding_agent": 0.8949458511080326,
+        "document": 0.044556730274651804,
+        "general": 0.022404530993228765,
+        "math": 0.004999126588569594,
+        "tools": 0.0207208038997533
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-05-0",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.0070173360239840004,
+        "coding_agent": 0.9482646806200795,
+        "document": 0.00929645981145302,
+        "general": 0.013058998184985897,
+        "math": 0.0032127705425416477,
+        "tools": 0.019149754816955904
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-05-1",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.01070838734143578,
+        "coding_agent": 0.9342810453884183,
+        "document": 0.01418630834049924,
+        "general": 0.021379522001904964,
+        "math": 0.003369543576976109,
+        "tools": 0.01607519335076573
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-06-0",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.01663319675841017,
+        "coding_agent": 0.853120243640989,
+        "document": 0.0374834875176393,
+        "general": 0.0642616482548414,
+        "math": 0.00611901112837858,
+        "tools": 0.022382412699741557
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "original-routing-06-1",
+      "split": "original",
+      "probabilities": {
+        "coding": 0.03393074341266142,
+        "coding_agent": 0.861518464534066,
+        "document": 0.016280148607272938,
+        "general": 0.04442723750827094,
+        "math": 0.006577774648005158,
+        "tools": 0.03726563128972369
+      },
+      "predicted": "coding_agent",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-01",
+      "split": "hard",
+      "probabilities": {
+        "deny_repeated_seepage": 0.22158073011789642,
+        "deny_vacancy_exclusion": 0.1955443080014768,
+        "pay_full_estimate_less_deductible": 0.17256724612935137,
+        "pay_subject_to_10000_sublimit": 0.21476340774979863,
+        "pay_subject_to_15000_sublimit": 0.1955443080014768
+      },
+      "predicted": "deny_repeated_seepage",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-04",
+      "split": "hard",
+      "probabilities": {
+        "budget_holder": 0.2276727563458555,
+        "cfo": 0.18691307959036196,
+        "department_head": 0.18116236869730085,
+        "executive_committee": 0.2052838578432685,
+        "vp_and_finance_director": 0.19896793752321315
+      },
+      "predicted": "budget_holder",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-08",
+      "split": "hard",
+      "probabilities": {
+        "full_repair_no_charge": 0.2369349459519662,
+        "not_covered": 0.19642596930867937,
+        "parts_covered_labour_charged": 0.3002459643944062,
+        "pro_rata_replacement_credit": 0.2663931203449482
+      },
+      "predicted": "parts_covered_labour_charged",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-09",
+      "split": "hard",
+      "probabilities": {
+        "license_exception_lvs": 0.40210405027959745,
+        "license_required": 0.16502316973344797,
+        "no_license_required": 0.18124249512474205,
+        "shipment_prohibited": 0.2516302848622126
+      },
+      "predicted": "license_exception_lvs",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-11",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.7185943925708561,
+        "no": 0.2814056074291439
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-13",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4513265055870016,
+        "no": 0.5486734944129984
+      },
+      "predicted": "no",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-17",
+      "split": "hard",
+      "probabilities": {
+        "database_oncall": 0.2657279913613004,
+        "no_page_ticket_only": 0.13205974670220022,
+        "platform_oncall": 0.17426867137775603,
+        "security_incident_response": 0.2037407182971861,
+        "vendor_support": 0.22420287226155727
+      },
+      "predicted": "database_oncall",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-long_policy-19",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4797474149690899,
+        "no": 0.5202525850309101
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-probability-03",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.5774953651858118,
+        "no": 0.4225046348141882
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-probability-04",
+      "split": "hard",
+      "probabilities": {
+        "early": 0.2564597182203733,
+        "late": 0.5100310510633728,
+        "on_time": 0.23350923071625385
+      },
+      "predicted": "late",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-probability-07",
+      "split": "hard",
+      "probabilities": {
+        "escalated": 0.2516270365896428,
+        "reopened": 0.14944850478959,
+        "resolved_first_contact": 0.5989244586207673
+      },
+      "predicted": "resolved_first_contact",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-probability-08",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.7057850278370112,
+        "no": 0.29421497216298875
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-temporal_numeric-03",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.6926419831347361,
+        "no": 0.30735801686526387
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-temporal_numeric-06",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.30735801686526387,
+        "no": 0.6926419831347361
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-temporal_numeric-07",
+      "split": "hard",
+      "probabilities": {
+        "sep_24": 0.23716800088168757,
+        "sep_25": 0.19056984246514302,
+        "sep_26": 0.1790237993900616,
+        "sep_27": 0.19661917863155387,
+        "sep_28": 0.19661917863155387
+      },
+      "predicted": "sep_24",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-temporal_numeric-09",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4073334000459302,
+        "no": 0.5926665999540698
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-a-temporal_numeric-12",
+      "split": "hard",
+      "probabilities": {
+        "0": 0.19579623168632335,
+        "1": 0.3893873023576069,
+        "2": 0.30325513599416615,
+        "3": 0.11156132996190357
+      },
+      "predicted": "1",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-02",
+      "split": "hard",
+      "probabilities": {
+        "cannot_determine": 0.04573508131925632,
+        "false_positive": 0.621565096962859,
+        "real_incident": 0.33269982171788465
+      },
+      "predicted": "false_positive",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-03",
+      "split": "hard",
+      "probabilities": {
+        "insufficient_information": 0.3254613438434269,
+        "time_barred": 0.3687960183092296,
+        "within_limitation": 0.3057426378473434
+      },
+      "predicted": "time_barred",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-07",
+      "split": "hard",
+      "probabilities": {
+        "insufficient_information": 0.6795850359974579,
+        "over_limit": 0.12571059131486553,
+        "within_policy": 0.19470437268767662
+      },
+      "predicted": "insufficient_information",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-09",
+      "split": "hard",
+      "probabilities": {
+        "compromised": 0.4750493954966175,
+        "inconclusive": 0.27067498645278015,
+        "legitimate": 0.2542756180506023
+      },
+      "predicted": "compromised",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-10",
+      "split": "hard",
+      "probabilities": {
+        "ask_user_which_alex": 0.27313287524273155,
+        "send_to_alex_moreno": 0.39740598852815867,
+        "send_to_alexandra_lind": 0.3294611362291097
+      },
+      "predicted": "send_to_alex_moreno",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-11",
+      "split": "hard",
+      "probabilities": {
+        "cannot_determine": 0.09353201571510485,
+        "grade_correct": 0.509594999570285,
+        "grade_should_be_higher": 0.3968729847146102
+      },
+      "predicted": "grade_correct",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-ambiguous-13",
+      "split": "hard",
+      "probabilities": {
+        "cannot_determine": 0.4635601177094095,
+        "charge_data_team": 0.1705342370523056,
+        "charge_platform_team": 0.16020208994386573,
+        "split_50_50": 0.20570355529441922
+      },
+      "predicted": "cannot_determine",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-multi_hop-03",
+      "split": "hard",
+      "probabilities": {
+        "tier1_team_lead": 0.22574917158111618,
+        "tier2_department_head": 0.3134216857545903,
+        "tier3_cfo": 0.14862937226251333,
+        "tier4_board": 0.3121997704017802
+      },
+      "predicted": "tier2_department_head",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-multi_hop-04",
+      "split": "hard",
+      "probabilities": {
+        "ana": 0.08170735959027205,
+        "bjorn": 0.08663794022610627,
+        "chen": 0.07497888784231417,
+        "dmitri": 0.5583684663812004,
+        "esra": 0.08921370787191894,
+        "no_page_ticket_only": 0.10909363808818816
+      },
+      "predicted": "dmitri",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-multi_hop-05",
+      "split": "hard",
+      "probabilities": {
+        "0": 0.15709955277938165,
+        "1": 0.1822386694401618,
+        "2": 0.2281324938456917,
+        "3": 0.22602581756968884,
+        "4": 0.20650346636507602
+      },
+      "predicted": "2",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-multi_hop-07",
+      "split": "hard",
+      "probabilities": {
+        "credit_10_percent": 0.16361395910077964,
+        "credit_20_percent": 0.14977450138272314,
+        "credit_25_percent": 0.16068458416368295,
+        "credit_50_percent": 0.17038099710772395,
+        "credit_full_month": 0.15635039164969736,
+        "no_credit": 0.19919556659539306
+      },
+      "predicted": "no_credit",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-multi_hop-08",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4795036797379416,
+        "no": 0.5204963202620584
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-probability-01",
+      "split": "hard",
+      "probabilities": {
+        "customer_wins": 0.3317989306420129,
+        "customer_withdraws": 0.1543008325252323,
+        "merchant_wins": 0.5139002368327548
+      },
+      "predicted": "merchant_wins",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-probability-02",
+      "split": "hard",
+      "probabilities": {
+        "bad_push": 0.48141581351512464,
+        "database_hardware": 0.16637285329514834,
+        "upstream_provider": 0.35221133318972714
+      },
+      "predicted": "bad_push",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-probability-03",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.5111065711480506,
+        "no": 0.4888934288519494
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-probability-04",
+      "split": "hard",
+      "probabilities": {
+        "attended": 0.1058110103038786,
+        "late_cancellation": 0.6481710199153035,
+        "no_show": 0.24601796978081794
+      },
+      "predicted": "late_cancellation",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-probability-06",
+      "split": "hard",
+      "probabilities": {
+        "modified": 0.5209164635567054,
+        "overturned": 0.21715028908203432,
+        "upheld": 0.2619332473612603
+      },
+      "predicted": "modified",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-tradeoff-01",
+      "split": "hard",
+      "probabilities": {
+        "escalate_to_engineering": 0.4082236771088678,
+        "escalate_to_security": 0.08556833122671163,
+        "page_oncall": 0.2325988398651349,
+        "process_refund": 0.1325308240074922,
+        "send_kb_article": 0.14107832779179347
+      },
+      "predicted": "escalate_to_engineering",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-tradeoff-03",
+      "split": "hard",
+      "probabilities": {
+        "order_a": 0.14710748608149438,
+        "order_b": 0.3528925139185056,
+        "order_c": 0.3528925139185056,
+        "order_d": 0.14710748608149438
+      },
+      "predicted": "order_b",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-tradeoff-06",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4378234991142019,
+        "no": 0.5621765008857982
+      },
+      "predicted": "no",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-tradeoff-07",
+      "split": "hard",
+      "probabilities": {
+        "out_of_scope": 0.08852852514075209,
+        "p0_fix_24h": 0.32892337406304495,
+        "p1_fix_7d": 0.25616578129078804,
+        "p2_fix_30d": 0.27268705474840815,
+        "p3_backlog": 0.053695264757006825
+      },
+      "predicted": "p0_fix_24h",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-tradeoff-08",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.6370307944803831,
+        "no": 0.36296920551961687
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-b-tradeoff-12",
+      "split": "hard",
+      "probabilities": {
+        "deny_refund": 0.019992725299526056,
+        "escalate_to_fraud_team": 0.26749970736227646,
+        "offer_store_credit": 0.26749970736227646,
+        "refund_now": 0.10153143676622498,
+        "wait_for_inspection": 0.34347642320969596
+      },
+      "predicted": "wait_for_inspection",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-02",
+      "split": "hard",
+      "probabilities": {
+        "erase_all": 0.1430356571947034,
+        "erase_but_retain_transaction_records": 0.1766254608477837,
+        "erase_marketing_only": 0.1766254608477837,
+        "reject_unverified_request": 0.1685371921208351,
+        "restrict_all_pending_legal_hold": 0.33517622898889415
+      },
+      "predicted": "restrict_all_pending_legal_hold",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-03",
+      "split": "hard",
+      "probabilities": {
+        "eur_0": 0.14723762839138954,
+        "eur_150": 0.1883197943122104,
+        "eur_200": 0.15043516233121776,
+        "eur_300": 0.1588911976198089,
+        "eur_400": 0.19053964845552113,
+        "eur_600": 0.16457656888985225
+      },
+      "predicted": "eur_400",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-04",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4992675786488685,
+        "no": 0.5007324213511315
+      },
+      "predicted": "no",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-05",
+      "split": "hard",
+      "probabilities": {
+        "0": 0.2658638974902097,
+        "1": 0.23462406604417851,
+        "2": 0.2497560182328059,
+        "3": 0.2497560182328059
+      },
+      "predicted": "0",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-08",
+      "split": "hard",
+      "probabilities": {
+        "0": 0.2578099578615078,
+        "1": 0.24219004213849218,
+        "2": 0.24219004213849218,
+        "3": 0.2578099578615078
+      },
+      "predicted": "0",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-10",
+      "split": "hard",
+      "probabilities": {
+        "credit_minus_restocking_fee": 0.27416108226793107,
+        "full_credit": 0.24194630591068964,
+        "reject_return": 0.24194630591068964,
+        "repair_or_replace_only": 0.24194630591068964
+      },
+      "predicted": "credit_minus_restocking_fee",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-long_policy-11",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.5506073655352404,
+        "no": 0.44939263446475963
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-probability-03",
+      "split": "hard",
+      "probabilities": {
+        "halvorsen_polymer": 0.3316039792696333,
+        "kuznets_technik": 0.2926394845901778,
+        "ortega_seal_works": 0.37575653614018895
+      },
+      "predicted": "ortega_seal_works",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-temporal_numeric-02",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.8122723960432147,
+        "no": 0.18772760395678534
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-temporal_numeric-03",
+      "split": "hard",
+      "probabilities": {
+        "eur_617_00": 0.11440220212145696,
+        "eur_688_00": 0.11340111974890475,
+        "eur_692_00": 0.10549521965619728,
+        "eur_693_90": 0.12357753410199532,
+        "eur_812_00": 0.5431239243714456
+      },
+      "predicted": "eur_812_00",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-temporal_numeric-04",
+      "split": "hard",
+      "probabilities": {
+        "usd_2222_50": 0.19576857869466063,
+        "usd_2303_01": 0.19273346820250628,
+        "usd_2303_33": 0.24363793265429431,
+        "usd_2335_00": 0.18105633767078008,
+        "usd_2340_00": 0.18680368277775877
+      },
+      "predicted": "usd_2303_33",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-temporal_numeric-06",
+      "split": "hard",
+      "probabilities": {
+        "none_declined": 0.03462668067305544,
+        "sep_15_office_chair": 0.15488321442763037,
+        "sep_16_taxi": 0.06456492958060149,
+        "sep_17_parking": 0.1755056748346869,
+        "sep_18_book_set": 0.3715455165406508,
+        "sep_21_client_dinner": 0.1988739839433749
+      },
+      "predicted": "sep_18_book_set",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-temporal_numeric-08",
+      "split": "hard",
+      "probabilities": {
+        "eur_497_40": 0.21418567667674077,
+        "eur_498_81": 0.19886466875130226,
+        "eur_506_06": 0.19406836120823515,
+        "eur_513_69": 0.21251887051707086,
+        "eur_532_01": 0.18036242284665097
+      },
+      "predicted": "eur_497_40",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-opus-c-temporal_numeric-12",
+      "split": "hard",
+      "probabilities": {
+        "covered": 0.23239854728514972,
+        "expired_24_month_term": 0.23977566907382172,
+        "expired_30_month_cap": 0.5278257836410285
+      },
+      "predicted": "expired_30_month_cap",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-adversarial-01",
+      "split": "hard",
+      "probabilities": {
+        "deny_inactive_user": 0.056969310557237834,
+        "deny_missing_approval": 0.05379280190814176,
+        "grant_access": 0.1388143892382071,
+        "grant_owner_exception": 0.7504234982964133
+      },
+      "predicted": "grant_owner_exception",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-adversarial-06",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4073334000459302,
+        "no": 0.5926665999540698
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-adversarial-07",
+      "split": "hard",
+      "probabilities": {
+        "delete_now": 0.5793841496820651,
+        "needs_signature_review": 0.24152324680618084,
+        "retain_indefinitely": 0.11408750350065294,
+        "retain_until_2031": 0.0650051000111011
+      },
+      "predicted": "delete_now",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-adversarial-08",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.42250463481418826,
+        "no": 0.5774953651858117
+      },
+      "predicted": "no",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-adversarial-09",
+      "split": "hard",
+      "probabilities": {
+        "0": 0.025267788315558315,
+        "1": 0.2551956218163043,
+        "2": 0.2716543253635535,
+        "3": 0.44788226450458396
+      },
+      "predicted": "3",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-adversarial-11",
+      "split": "hard",
+      "probabilities": {
+        "ethics_review": 0.31319734427829593,
+        "major_grants": 0.17845446752111083,
+        "manual_hold": 0.13056007749379556,
+        "standard_research": 0.37778811070679763
+      },
+      "predicted": "standard_research",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-01",
+      "split": "hard",
+      "probabilities": {
+        "accept_s2_dusk": 0.2644305770631269,
+        "reject_cutoff": 0.17072921242328504,
+        "reject_tier": 0.23703403733657663,
+        "reroute_s3": 0.3278061731770114
+      },
+      "predicted": "reroute_s3",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-02",
+      "split": "hard",
+      "probabilities": {
+        "executive_bridge": 0.34784685691802236,
+        "heron_q2": 0.44664420539768485,
+        "insufficient_information": 0.01931993214451132,
+        "security_primary": 0.18618900553978143
+      },
+      "predicted": "heron_q2",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-05",
+      "split": "hard",
+      "probabilities": {
+        "pay_manager_approved": 0.3119382327986379,
+        "reject_category": 0.3534723259481761,
+        "require_director": 0.17773704742558016,
+        "require_finance_board": 0.15685239382760582
+      },
+      "predicted": "reject_category",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-07",
+      "split": "hard",
+      "probabilities": {
+        "admit": 0.17210089233449274,
+        "deny_prerequisite": 0.13828695194279556,
+        "deny_score": 0.14267665101012456,
+        "manual_equivalency": 0.5469355047125872
+      },
+      "predicted": "manual_equivalency",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-08",
+      "split": "hard",
+      "probabilities": {
+        "central_engineering": 0.49661056753349736,
+        "insufficient_log": 0.05234236872725798,
+        "local_maintenance": 0.3413151188000728,
+        "safety_shutdown": 0.10973194493917188
+      },
+      "predicted": "central_engineering",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-09",
+      "split": "hard",
+      "probabilities": {
+        "confirm_l3": 0.2533477902776236,
+        "reject_capacity": 0.11967302233799461,
+        "require_steward": 0.4733159850105568,
+        "switch_l4": 0.15366320237382494
+      },
+      "predicted": "require_steward",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-10",
+      "split": "hard",
+      "probabilities": {
+        "approve_45_days": 0.30457886350116375,
+        "deny_sensitive": 0.33451443983517376,
+        "needs_field_review": 0.1580134327870326,
+        "reduce_to_30_days": 0.20289326387662995
+      },
+      "predicted": "deny_sensitive",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-multi_hop-12",
+      "split": "hard",
+      "probabilities": {
+        "covered_recurrence": 0.3561211390613624,
+        "expired": 0.28952443605284645,
+        "needs_authentication": 0.16887810816493992,
+        "wrong_issue_class": 0.18547631672085124
+      },
+      "predicted": "covered_recurrence",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-02",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.44167300566462553,
+        "no": 0.5583269943353745
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-04",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4513265055870016,
+        "no": 0.5486734944129984
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-05",
+      "split": "hard",
+      "probabilities": {
+        "0": 0.1564329924488433,
+        "1": 0.2745484518995777,
+        "2": 0.3111041535618984,
+        "3": 0.25791440208968053
+      },
+      "predicted": "2",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-06",
+      "split": "hard",
+      "probabilities": {
+        "await_internal_metrics": 0.06079919424700978,
+        "close_agent_verified": 0.6536529390524198,
+        "close_confirmed": 0.2122100394594051,
+        "keep_open_unresolved": 0.07333782724116526
+      },
+      "predicted": "close_agent_verified",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-08",
+      "split": "hard",
+      "probabilities": {
+        "canceled": 0.002211582860068791,
+        "indeterminate": 0.02002203636879883,
+        "late": 0.35489908641228907,
+        "on_time": 0.6228672943588434
+      },
+      "predicted": "on_time",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-10",
+      "split": "hard",
+      "probabilities": {
+        "blocked_failed_test": 0.4203964482100947,
+        "blocked_second_review": 0.21809880419656635,
+        "ready_one_review": 0.13648274418009393,
+        "ready_two_reviews": 0.225022003413245
+      },
+      "predicted": "blocked_failed_test",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-13",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.5448013956982781,
+        "no": 0.4551986043017219
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-a-trap-15",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.4378234991142019,
+        "no": 0.5621765008857982
+      },
+      "predicted": "no",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-01",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9602121916306376,
+        "no": 0.039787808369362354
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-02",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9579122720843811,
+        "no": 0.04208772791561888
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-05",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9465966702001757,
+        "no": 0.05340332979982432
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-08",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9724147177732099,
+        "no": 0.02758528222679013
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-10",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9658995742876885,
+        "no": 0.03410042571231153
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-14",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9697854129326061,
+        "no": 0.030214587067393883
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-15",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9669140216112958,
+        "no": 0.033085978388704196
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-judge_hard-18",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9465966702001757,
+        "no": 0.05340332979982432
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-long_policy-01",
+      "split": "hard",
+      "probabilities": {
+        "approve_all": 0.240776942258484,
+        "approve_lodging_only": 0.2563057208693416,
+        "approve_meals_only": 0.2904324311152722,
+        "reject_entire_claim": 0.21248490575690213
+      },
+      "predicted": "approve_meals_only",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-long_policy-02",
+      "split": "hard",
+      "probabilities": {
+        "analytics_owner_only": 0.26327828547718324,
+        "deny_current_export": 0.2551780642004366,
+        "privacy_and_security": 0.26327828547718324,
+        "privacy_only": 0.21826536484519693
+      },
+      "predicted": "analytics_owner_only",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-long_policy-05",
+      "split": "hard",
+      "probabilities": {
+        "delete_everything": 0.2350075805349293,
+        "delete_nothing": 0.2207691910147025,
+        "delete_only_profile": 0.24246752192922774,
+        "delete_profile_omar_april_and_table": 0.30175570652114053
+      },
+      "predicted": "delete_profile_omar_april_and_table",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-long_policy-06",
+      "split": "hard",
+      "probabilities": {
+        "east_ward": 0.264634220591857,
+        "harbor_neighbors": 0.264634220591857,
+        "no_award": 0.2060973382244291,
+        "river_arts": 0.264634220591857
+      },
+      "predicted": "east_ward",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-routing_hard-01",
+      "split": "hard",
+      "probabilities": {
+        "data_pipeline": 0.16059346639472843,
+        "desktop_support": 0.2195052429729339,
+        "finance_review": 0.09740486111793326,
+        "office_file_repair": 0.3619029631196759,
+        "spreadsheet_formula": 0.16059346639472843
+      },
+      "predicted": "office_file_repair",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-routing_hard-02",
+      "split": "hard",
+      "probabilities": {
+        "customer_support": 0.26224602900319155,
+        "fraud_review": 0.10932040930293913,
+        "ledger_reconciliation": 0.3163290929741815,
+        "mobile_app": 0.13186558458028794,
+        "payment_disputes": 0.1802388841393999
+      },
+      "predicted": "ledger_reconciliation",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-routing_hard-03",
+      "split": "hard",
+      "probabilities": {
+        "api_platform": 0.23218307142873637,
+        "authoritative_dns": 0.14990865792946564,
+        "endpoint_devices": 0.23218307142873637,
+        "network_dns": 0.20490084136843772,
+        "tls_certificates": 0.18082435784462383
+      },
+      "predicted": "api_platform",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-routing_hard-07",
+      "split": "hard",
+      "probabilities": {
+        "ci_infrastructure": 0.12447201590996593,
+        "code_signing": 0.19278602957342508,
+        "endpoint_security": 0.12447201590996593,
+        "macos_runtime": 0.15014191079701047,
+        "release_notarization": 0.4081280278096325
+      },
+      "predicted": "release_notarization",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-routing_hard-09",
+      "split": "hard",
+      "probabilities": {
+        "git_client": 0.41318366966027525,
+        "identity_login": 0.21435686397954506,
+        "repository_admin": 0.09512028178833905,
+        "source_access": 0.13001401012344468,
+        "vpn_network": 0.14732517444839605
+      },
+      "predicted": "git_client",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-temporal_numeric-01",
+      "split": "hard",
+      "probabilities": {
+        "before_open": 0.09485024104173209,
+        "late_by_2h_or_more": 0.341568839220038,
+        "late_by_under_2h": 0.41201066612682125,
+        "within_window": 0.15157025361140872
+      },
+      "predicted": "late_by_under_2h",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-temporal_numeric-02",
+      "split": "hard",
+      "probabilities": {
+        "at_least_100gb_below": 0.23227604470464294,
+        "exactly_equal": 0.2982483450884596,
+        "over_limit": 0.3597561756854474,
+        "under_100gb_below": 0.10971943452145
+      },
+      "predicted": "over_limit",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-temporal_numeric-03",
+      "split": "hard",
+      "probabilities": {
+        "12_credits": 0.201926817830654,
+        "15_credits": 0.16707657141373797,
+        "6_credits": 0.2440464238294838,
+        "9_credits": 0.38695018692612415
+      },
+      "predicted": "9_credits",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-b-temporal_numeric-04",
+      "split": "hard",
+      "probabilities": {
+        "clear_fail": 0.3385579552511115,
+        "narrow_fail": 0.5581877021872497,
+        "pass": 0.10325434256163889
+      },
+      "predicted": "narrow_fail",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-03",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9740426428022031,
+        "no": 0.025957357197796904
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-05",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9399133498259924,
+        "no": 0.060086650174007605
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-07",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9433475746920261,
+        "no": 0.056652425307973875
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-08",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9362850057480346,
+        "no": 0.06371499425196536
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-09",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9615338079816756,
+        "no": 0.03846619201832435
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-10",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9597620573763841,
+        "no": 0.04023794262361591
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-11",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9433475746920261,
+        "no": 0.056652425307973875
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-13",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9465966702001757,
+        "no": 0.05340332979982432
+      },
+      "predicted": "yes",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-judge_hard-15",
+      "split": "hard",
+      "probabilities": {
+        "yes": 0.9449947117065459,
+        "no": 0.05500528829345408
+      },
+      "predicted": "yes",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-multi_hop-07",
+      "split": "hard",
+      "probabilities": {
+        "partial_release": 0.2231311928199343,
+        "programme_review": 0.2865061228366489,
+        "reject_draw": 0.2528407659748643,
+        "release_draw": 0.23752191836855252
+      },
+      "predicted": "programme_review",
+      "correct": true,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-multi_hop-09",
+      "split": "hard",
+      "probabilities": {
+        "bus_substitution": 0.16447323815216464,
+        "call_fen_cross": 0.301333197504796,
+        "pass_fen_cross": 0.27544084062633534,
+        "terminate_oakmere": 0.2587527237167041
+      },
+      "predicted": "call_fen_cross",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-multi_hop-11",
+      "split": "hard",
+      "probabilities": {
+        "adjuster_referral": 0.3089311369499866,
+        "coverage_confirmed": 0.19032695219294118,
+        "coverage_excluded": 0.24059581137178898,
+        "documentation_needed": 0.2601460994852833
+      },
+      "predicted": "adjuster_referral",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-multi_hop-12",
+      "split": "hard",
+      "probabilities": {
+        "conservation_hold": 0.1589495822437228,
+        "deny_request": 0.09869403995240777,
+        "digital_copy_only": 0.31364901030600745,
+        "supervised_delivery": 0.42870736749786204
+      },
+      "predicted": "supervised_delivery",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    },
+    {
+      "task_id": "hard-sol-c-multi_hop-13",
+      "split": "hard",
+      "probabilities": {
+        "engineering_review": 0.3357297350676873,
+        "normal_release": 0.23074344748335499,
+        "rework": 0.21676340872447888,
+        "scrap_lot": 0.21676340872447888
+      },
+      "predicted": "engineering_review",
+      "correct": false,
+      "prediction_matches": true,
+      "max_probability_diff": 0.0
+    }
+  ]
+}

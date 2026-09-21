@@ -47,13 +47,24 @@ def aggregate(request, tasks, margins, calibration):
         raise RuntimeError("Backend returned invalid margins")
     grouped = {key: [] for key in request.questions}
     for task, margin in zip(tasks, margins):
-        grouped[task.question_id].append(margin)
+        grouped[task.question_id].append((task.option_id, margin))
     answers = {}
     for key, question in request.questions.items():
-        z = grouped[key]
+        candidates = grouped[key]
         if question.type == "noul":
-            answers[key] = {"type": "noul", "noul": sigmoid(calibration.noul_a * z[0] + calibration.noul_b)}
+            if not question.criteria:
+                if len(candidates) != 1 or candidates[0][0] != "":
+                    raise RuntimeError("Noul without criteria requires exactly one state margin")
+                margin = candidates[0][1]
+            else:
+                if len(candidates) != 2 or {label for label, _ in candidates} != {"true", "false"}:
+                    raise RuntimeError("Noul requires exactly one true and one false margin")
+                by_label = dict(candidates)
+                # At a=1, b=0 this equals softmax([z_true, z_false])[0].
+                margin = by_label["true"] - by_label["false"]
+            answers[key] = {"type": "noul", "noul": sigmoid(calibration.noul_a * margin + calibration.noul_b)}
             continue
+        z = [margin for _, margin in candidates]
         temp = calibration.choice_temperature if question.type == "choice" else calibration.score_temperature
         p = softmax(z, temp)
         keys = list(question.criteria) if question.type == "choice" else list(map(str, range(len(p))))

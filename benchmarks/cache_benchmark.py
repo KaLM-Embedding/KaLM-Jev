@@ -11,6 +11,7 @@ import torch
 
 from kalm_jev import Engine, Request
 from kalm_jev.compiler import compile_request
+from kalm_jev.templates import TEMPLATE_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,7 +34,7 @@ def run(args):
     torch.set_num_threads(4)
     engine = Engine(model=args.model, model_path=args.model_path, device=args.device,
                     dtype=args.dtype, batch_size=args.batch_size)
-    report = {"model": args.model, "identity": engine.backend.public_identity, "batch_size": args.batch_size,
+    report = {"template_version": TEMPLATE_VERSION, "model": args.model, "identity": engine.backend.public_identity, "batch_size": args.batch_size,
               "samples_per_mode": args.samples, "device_name": torch.cuda.get_device_name() if args.device == "cuda" else "CPU",
               "workloads": {}}
     for name, template in workloads():
@@ -71,7 +72,9 @@ def run(args):
                 encoded.append(response["kalm"]["cache"]["encoded_documents"])
                 calls.append(detail["encoder_calls"])
                 if mode == "warm":
-                    assert calls[-1] == encoded[-1] == 0
+                    expected = 1 if name == "noul-8" else 0
+                    assert encoded[-1] == expected
+                    assert calls[-1] == expected
             modes[mode] = {"n": len(timings), "p50_ms": statistics.median(timings) * 1000,
                 "p95_ms": float(np.percentile(timings, 95)) * 1000,
                 "requests_per_second": len(timings) / sum(timings),
@@ -83,7 +86,8 @@ def run(args):
                 "raw_seconds": timings}
             print(name, mode, "p50_ms", modes[mode]["p50_ms"], flush=True)
         report["workloads"][name] = {"modes": modes, "speedup": modes["off"]["p50_ms"] / modes["warm"]["p50_ms"],
-                                      "token_lengths": lengths, "queries_are_distinct": len({r["state"] for r in requests}) == len(requests)}
+                                      "token_lengths": lengths, "queries_are_distinct": len({r["state"] for r in requests}) == len(requests),
+                                      "documents_depend_on_state": name == "noul-8"}
         if name.startswith("choice"):
             extra = copy.deepcopy(requests[0])
             extra["questions"]["decision"]["criteria"]["extra"] = "A new queue for a new topic"

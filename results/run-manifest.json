@@ -1,0 +1,40 @@
+{
+  "template_version": "v3-noul-state-document",
+  "recorded_at_utc": "2026-09-21T11:48:15.378716+00:00",
+  "unit_tests": {
+    "passed": 40
+  },
+  "gpu_suite_passed": true,
+  "configuration": {
+    "chunk_size": 4,
+    "validation_batch_size": 4,
+    "benchmark_batch_size": 8,
+    "benchmark_samples_per_mode": 30
+  },
+  "source_sha256": {
+    "src/kalm_jev/__init__.py": "ed4410f7edf1e7d84a37c08468c16ce584cfa3372dc467e723c8effefb6b656a",
+    "src/kalm_jev/aggregation.py": "7ef9692bc4dd4a39369fbb33dc942aab3191103778738fe0138a7c957004d64d",
+    "src/kalm_jev/backend.py": "98350e8ce50f6494c71cde1025a20e006fccb35394b8534ef03ce3b9a7ccaa3a",
+    "src/kalm_jev/cache.py": "793639f4bc46b4f806ed14f50596be40e13c6b1b9ba02291513c3ac75ed14296",
+    "src/kalm_jev/compiler.py": "8ce2185a61df9b7cce36e1f0f3b88c4c8e951075e675468b3a91df9d306cb3f1",
+    "src/kalm_jev/engine.py": "b7f08ac3faf7bba104b597435f60ccc0c0bc89756e4804379cac458c31176e73",
+    "src/kalm_jev/schemas.py": "97089cfd2f782efced792b600d0b5ae8c2ae93c3b31684f9028af115fe00af61",
+    "src/kalm_jev/server.py": "f1c699742809af8ea6c2546963b7c16dd5f839299789e1d27cb543f648cacc25",
+    "src/kalm_jev/templates.py": "93c5e3bc371676c460babe3899b3271afe8fb292d5f0c69bcfb1af6d97ba54cc"
+  },
+  "results_sha256": {
+    "results/http-smoke.json": "916f60ad5d911ce5512723849dcb68ad14a8e7dc74fef2d7a8e6c1e77979e387",
+    "results/kalm-jev-large-bfloat16-semantics.json": "20a33f89f857122b9b757338817a84314a68bbec50c7c3063ae950ff5c25a127",
+    "results/kalm-jev-large-bfloat16-validation.json": "e7dfccfb9fd55854810dd152f29a23cd2d2259f0d7a4959cf9312d752813f024",
+    "results/kalm-jev-large-float32-validation.json": "b772bf6f8f0a1c773427068b89d07c409c32d8593ed273037478bd0509a4da0c",
+    "results/kalm-jev-large-noul-candidates-example.json": "6db74bb4a3761ae03ef30ddaf2fe69fc728f5ac621ac08c4945e73c9d9b728d4",
+    "results/kalm-jev-nano-bfloat16-benchmark.json": "95430b19a972160913ce28e65e03aaa4f69562ad5ac2ebaae841d58e8105fb31",
+    "results/kalm-jev-nano-bfloat16-semantics.json": "ba5696190673a62ec585601da363a7cb44c2515873c6ed7f806492b41ba87323",
+    "results/kalm-jev-nano-bfloat16-validation.json": "aad872ba98697d957cbf48dbd48042812e3fa2368de6cc852353d6aa0224de18",
+    "results/kalm-jev-nano-float32-validation.json": "9e32617cac48bd7722c2326a5a243f389ed19c0a5446867c7dc2c2f084f3bd55",
+    "results/kalm-jev-small-bfloat16-semantics.json": "14652397cb587506b56e6126d56f246fb609712e2faaf2db917c3994ae8291d4",
+    "results/kalm-jev-small-bfloat16-validation.json": "dbc3c0c2458de249795a70390225fa6d3e03db02af470c365dc3faf8540ea706",
+    "results/kalm-jev-small-float32-validation.json": "7c5e3cb35f9e2d30c4ade0b17065ededd0c00eab569b62d8ae367f6385b1b765",
+    "results/noul-v3-nano-regression.json": "e8342cc6256e44962f54b192377fda5100cc31f5cb9db9d5e9fe1a9c513e47b9"
+  }
+}

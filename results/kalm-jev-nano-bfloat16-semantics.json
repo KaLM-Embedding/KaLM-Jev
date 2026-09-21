@@ -77,7 +77,7 @@
     "score_n": 12,
     "noul_accuracy": 0.5,
     "noul_n": 12,
-    "repeat_contact_accuracy": 0.16666666666666666,
+    "repeat_contact_accuracy": 0.8333333333333334,
     "repeat_contact_n": 12,
     "noul_threshold": 0.5
   },
@@ -105,7 +105,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -141,7 +141,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -177,7 +177,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -213,7 +213,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -249,7 +249,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -285,7 +285,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -321,7 +321,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -357,7 +357,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -393,7 +393,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -429,7 +429,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -465,7 +465,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -502,7 +502,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -543,7 +543,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -584,7 +584,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -625,7 +625,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -666,7 +666,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -707,7 +707,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -748,7 +748,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -789,7 +789,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -830,7 +830,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -871,7 +871,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -912,7 +912,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -953,7 +953,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -994,7 +994,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -1015,28 +1015,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9284088005554476
+            "noul": 0.9783846672373524
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9539660976007597
+            "noul": 0.10818895456207035
           }
         },
         "usage": {
-          "input_tokens": 278,
+          "input_tokens": 339,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 0,
-            "miss_documents": 2,
-            "encoded_documents": 2
+            "miss_documents": 3,
+            "encoded_documents": 3
           }
         }
       }
@@ -1049,28 +1049,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9732407168145568
+            "noul": 0.9928785712542649
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9715639669551474
+            "noul": 0.19314738002256465
           }
         },
         "usage": {
-          "input_tokens": 284,
+          "input_tokens": 351,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1083,28 +1083,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.941654159388319
+            "noul": 0.9820137900379085
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.96036116089903
+            "noul": 0.306942374426787
           }
         },
         "usage": {
-          "input_tokens": 292,
+          "input_tokens": 367,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1117,28 +1117,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.96036116089903
+            "noul": 0.9706877692486436
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9626731126558706
+            "noul": 0.19421493774762633
           }
         },
         "usage": {
-          "input_tokens": 270,
+          "input_tokens": 323,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1151,28 +1151,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9553191297273498
+            "noul": 0.9933588873579225
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9790357591818724
+            "noul": 0.41489884579676883
           }
         },
         "usage": {
-          "input_tokens": 286,
+          "input_tokens": 355,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1185,28 +1185,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.96036116089903
+            "noul": 0.9879462204837635
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9706877692486436
+            "noul": 0.07152631848873788
           }
         },
         "usage": {
-          "input_tokens": 282,
+          "input_tokens": 347,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1219,28 +1219,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9525741268224334
+            "noul": 0.8807970779778823
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9465966702001757
+            "noul": 0.12168575463704705
           }
         },
         "usage": {
-          "input_tokens": 268,
+          "input_tokens": 319,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1253,28 +1253,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9626731126558706
+            "noul": 0.9919380084717284
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9579122720843811
+            "noul": 0.1489114855793642
           }
         },
         "usage": {
-          "input_tokens": 276,
+          "input_tokens": 335,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1287,28 +1287,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.8991213772699436
+            "noul": 0.9875683491468141
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9196425311777929
+            "noul": 0.1030244283262171
           }
         },
         "usage": {
-          "input_tokens": 292,
+          "input_tokens": 367,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1321,28 +1321,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9539660976007597
+            "noul": 0.9886682464686385
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9566342012360932
+            "noul": 0.13017480529538433
           }
         },
         "usage": {
-          "input_tokens": 272,
+          "input_tokens": 327,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1355,28 +1355,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9553191297273498
+            "noul": 0.9770226300899744
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9715639669551474
+            "noul": 0.02655657099549924
           }
         },
         "usage": {
-          "input_tokens": 286,
+          "input_tokens": 355,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }
@@ -1389,28 +1389,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9615338079816756
+            "noul": 0.9871787857334058
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9715639669551474
+            "noul": 0.03283695602724524
           }
         },
         "usage": {
-          "input_tokens": 276,
+          "input_tokens": 335,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       }

@@ -13,7 +13,7 @@ from kalm_jev.cache import DocumentCache, document_key
 from kalm_jev.compiler import compile_request
 from kalm_jev.schemas import JevError, strict_loads
 from kalm_jev.server import create_app
-from kalm_jev.templates import CHOICE_ADAPTER, SCORE_ADAPTER, NOUL_ADAPTER, render_content
+from kalm_jev.templates import CHOICE_ADAPTER, SCORE_ADAPTER, NOUL_ADAPTER, NOUL_DEFAULT_CRITERIA, render_content
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -52,7 +52,8 @@ def test_compiler_exact():
         "n2": {"type": "noul", "instructions": "Again?", "criteria": {"false": "no", "true": ["yes"]}}}})
     tasks = compile_request(request)
     assert [t.document for t in tasks] == ["b", 'a: {"x":1,"y":2}', " high ", '{"a":2,"b":1}',
-        "Question: Yes?", 'Question: Again?\nTrue criteria: ["yes"]\nFalse criteria: no']
+        '{"a":1,"z":[2,"中文"]}', '["yes"]', 'no']
+    assert [t.option_id for t in tasks[4:]] == ["", "true", "false"]
     assert tasks[0].instruction == " Q \n\n\n" + CHOICE_ADAPTER
     assert tasks[2].instruction == '["等级"]\n\n' + SCORE_ADAPTER
     assert tasks[4].instruction == "Yes?\n\n" + NOUL_ADAPTER
@@ -72,7 +73,7 @@ def test_aggregation():
     req = Request.model_validate({"state": "x", "questions": {"q": {"type": "choice", "instructions": "?", "criteria": {"first": None, "second": None}}}})
     assert aggregate(req, compile_request(req), [0, 0], Calibration())["q"]["choice"] == "first"
     req = Request.model_validate(example("noul"))
-    answers = aggregate(req, compile_request(req), [10, 10], Calibration())
+    answers = aggregate(req, compile_request(req), [10, 10, 0], Calibration())
     assert all(a["noul"] > .99 and "confidence" not in a for a in answers.values())
     for params in ({"noul_a": 0}, {"score_temperature": -1}, {"noul_b": math.nan}):
         with pytest.raises(ValueError):
@@ -195,9 +196,46 @@ def test_noul_cache_invalidation():
     engine = Engine(backend=FakeBackend())
     engine.evaluate(req)
     req["questions"]["is_human_escalation"]["instructions"] = "Does the customer want a human?"
-    assert engine.evaluate(req)["kalm"]["cache"]["encoded_documents"] == 1
+    assert engine.evaluate(req)["kalm"]["cache"]["encoded_documents"] == 0
     req["questions"]["is_repeat_contact"]["criteria"]["false"] = "No explicit previous contact"
     assert engine.evaluate(req)["kalm"]["cache"]["encoded_documents"] == 1
+
+
+@pytest.mark.parametrize("criteria", [{"true": "Allowed"}, {"false": "Denied"},
+                                    {"false": "Denied", "true": "Allowed"}])
+def test_noul_missing_criteria_and_candidate_polarity(criteria):
+    question = {"type": "noul", "instructions": "Is this allowed?"}
+    if criteria is not None:
+        question["criteria"] = criteria
+    req = Request.model_validate({"state": "Evidence", "questions": {"q": question}})
+    tasks = compile_request(req)
+    assert [(t.option_id, t.document) for t in tasks] == [
+        (key, (criteria or {}).get(key, NOUL_DEFAULT_CRITERIA[key])) for key in ("true", "false")]
+    assert all(t.instruction == "Is this allowed?\n\n" + NOUL_ADAPTER for t in tasks)
+    answer = aggregate(req, tasks, [1, 3], Calibration())["q"]
+    assert answer["noul"] == pytest.approx(softmax([1, 3])[0])
+    assert answer["noul"] < .5  # A stronger false match must lower business p(true).
+    assert aggregate(req, tasks[::-1], [3, 1], Calibration())["q"] == answer
+    assert aggregate(req, tasks, [9, 9], Calibration())["q"]["noul"] == .5
+    assert aggregate(req, tasks, [1, 3], Calibration(noul_a=2, noul_b=1))["q"]["noul"] == pytest.approx(sigmoid(-3))
+    with pytest.raises(RuntimeError, match="exactly one true and one false"):
+        aggregate(req, tasks[:1], [1], Calibration())
+
+
+def test_noul_without_criteria_counts_one_pair_and_reuses_state():
+    req = {"state": "Evidence", "questions": {
+        "a": {"type": "noul", "instructions": "First question?"},
+        "b": {"type": "noul", "instructions": "Second question?"}}}
+    engine = Engine(backend=FakeBackend(), max_pairs=1)
+    with pytest.raises(JevError, match="Too many point-wise tasks"):
+        engine.evaluate(req)
+    engine = Engine(backend=FakeBackend(), max_pairs=2)
+    cold = engine.evaluate(req)
+    warm = engine.evaluate(req)
+    assert cold["kalm"]["cache"]["encoded_documents"] == 1
+    assert warm["kalm"]["cache"]["encoded_documents"] == 0
+    assert cold["usage"] == warm["usage"]
+    assert cold["answers"] == warm["answers"]
 
 
 def test_http_internal_errors_are_sanitized():
@@ -214,3 +252,22 @@ def test_http_internal_errors_are_sanitized():
         raise RuntimeError("CUDA out of memory")
     backend.score_encoded = oom
     assert client.post("/v1/systemone", json=example()).status_code == 503
+
+
+def test_noul_state_margin_and_cache_change():
+    req = Request.model_validate({"state": {"text": "Evidence"}, "questions": {
+        "q": {"type": "noul", "instructions": "Is this allowed?"}}})
+    tasks = compile_request(req)
+    assert len(tasks) == 1
+    assert tasks[0].document == tasks[0].query == '{"text":"Evidence"}'
+    assert tasks[0].instruction == "Is this allowed?\n\n" + NOUL_ADAPTER
+    for z in (-10, 0, 6.75):
+        assert aggregate(req, tasks, [z], Calibration())["q"]["noul"] == pytest.approx(sigmoid(z))
+    assert aggregate(req, tasks, [2], Calibration(noul_a=2, noul_b=-1))["q"]["noul"] == pytest.approx(sigmoid(3))
+    with pytest.raises(RuntimeError, match="one state margin"):
+        aggregate(req, tasks * 2, [1, 2], Calibration())
+    engine = Engine(backend=FakeBackend())
+    engine.evaluate(req)
+    assert engine.evaluate(req)["kalm"]["cache"]["encoded_documents"] == 0
+    changed = req.model_copy(update={"state": "Different evidence"})
+    assert engine.evaluate(changed)["kalm"]["cache"]["encoded_documents"] == 1

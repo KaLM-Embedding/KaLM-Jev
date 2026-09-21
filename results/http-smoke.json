@@ -25,7 +25,7 @@
       },
       "kalm": {
         "backend": "transformers",
-        "template_version": "v1",
+        "template_version": "v3-noul-state-document",
         "confidence_method": "normalized_entropy_v1",
         "calibration": "none",
         "cache": {
@@ -62,7 +62,7 @@
       },
       "kalm": {
         "backend": "transformers",
-        "template_version": "v1",
+        "template_version": "v3-noul-state-document",
         "confidence_method": "normalized_entropy_v1",
         "calibration": "none",
         "cache": {
@@ -79,26 +79,26 @@
       "answers": {
         "is_human_escalation": {
           "type": "noul",
-          "noul": 0.9304582554941719
+          "noul": 0.9979730999195362
         },
         "is_repeat_contact": {
           "type": "noul",
-          "noul": 0.9637799441350253
+          "noul": 0.37387582277169656
         }
       },
       "usage": {
-        "input_tokens": 292,
+        "input_tokens": 367,
         "output_tokens": 0
       },
       "kalm": {
         "backend": "transformers",
-        "template_version": "v1",
+        "template_version": "v3-noul-state-document",
         "confidence_method": "normalized_entropy_v1",
         "calibration": "none",
         "cache": {
           "enabled": true,
-          "unique_documents": 2,
-          "hit_documents": 2,
+          "unique_documents": 3,
+          "hit_documents": 3,
           "miss_documents": 0,
           "encoded_documents": 0
         }
@@ -120,12 +120,12 @@
         "bug_severity": {
           "type": "score",
           "probabilities": {
-            "0": 0.0493235475925366,
-            "1": 0.47533822620373173,
-            "2": 0.47533822620373173
+            "0": 0.04785642830266785,
+            "1": 0.46119938350254264,
+            "2": 0.49094418819478947
           },
-          "confidence": 0.22131097156739887,
-          "score": 1.4260146786111951,
+          "confidence": 0.22478062123586218,
+          "score": 1.4430877598921215,
           "legend": {
             "0": "Cosmetic; no impact to functionality",
             "1": "Broken or degraded feature, but workaround exists",
@@ -134,26 +134,26 @@
         },
         "is_human_escalation": {
           "type": "noul",
-          "noul": 0.8872045937171068
+          "noul": 0.9859363729567544
         },
         "is_repeat_contact": {
           "type": "noul",
-          "noul": 0.8991213772699436
+          "noul": 0.11279540628289324
         }
       },
       "usage": {
-        "input_tokens": 1072,
+        "input_tokens": 1165,
         "output_tokens": 0
       },
       "kalm": {
         "backend": "transformers",
-        "template_version": "v1",
+        "template_version": "v3-noul-state-document",
         "confidence_method": "normalized_entropy_v1",
         "calibration": "none",
         "cache": {
           "enabled": true,
-          "unique_documents": 8,
-          "hit_documents": 8,
+          "unique_documents": 9,
+          "hit_documents": 9,
           "miss_documents": 0,
           "encoded_documents": 0
         }

@@ -1,6 +1,6 @@
 import json
 
-TEMPLATE_VERSION = "v1"
+TEMPLATE_VERSION = "v3-noul-state-document"
 CHOICE_ADAPTER = (
     "Evaluate whether the candidate option described in the Document "
     "is an appropriate answer to the question above, "
@@ -16,12 +16,14 @@ SCORE_ADAPTER = (
     "not merely by topical relevance."
 )
 NOUL_ADAPTER = (
-    "Evaluate whether the information in the Query warrants a yes "
-    "answer to the question stated in the Document. "
-    "Apply any provided true and false criteria. "
-    "Judge whether the condition holds, not merely whether "
-    "the Query is related to the topic."
+    "Given the Query, evaluate whether the candidate criterion in the "
+    "Document correctly describes the answer to the question above. "
+    "Answer yes if this candidate criterion is satisfied, otherwise no."
 )
+NOUL_DEFAULT_CRITERIA = {
+    "true": "The answer to the question is yes.",
+    "false": "The answer to the question is no.",
+}
 ADAPTERS = {"choice": CHOICE_ADAPTER, "score": SCORE_ADAPTER, "noul": NOUL_ADAPTER}
 
 

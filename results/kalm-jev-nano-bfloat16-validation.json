@@ -93,10 +93,11 @@
         -5.75,
         -6.1875
       ],
-      "native_backend_max_margin_diff": 0,
-      "native_backend_max_probability_diff": 0,
-      "batch1_backend_margin_diff": 0,
-      "batch1_backend_probability_diff": 0,
+      "native_backend_max_margin_diff": 0.0,
+      "native_backend_max_probability_diff": 0.0,
+      "off_cold_warm_max_margin_diff": 0.0,
+      "batch1_backend_margin_diff": 0.0,
+      "batch1_backend_probability_diff": 0.0,
       "choice_flips": [],
       "off": {
         "model": "kalm-jev-nano",
@@ -118,7 +119,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -150,7 +151,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -182,7 +183,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -215,7 +216,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -250,10 +251,11 @@
         -2.3125,
         -2.1875
       ],
-      "native_backend_max_margin_diff": 0,
-      "native_backend_max_probability_diff": 0,
-      "batch1_backend_margin_diff": 0,
-      "batch1_backend_probability_diff": 0,
+      "native_backend_max_margin_diff": 0.0,
+      "native_backend_max_probability_diff": 0.0,
+      "off_cold_warm_max_margin_diff": 0.0,
+      "batch1_backend_margin_diff": 0.0,
+      "batch1_backend_probability_diff": 0.0,
       "choice_flips": [],
       "off": {
         "model": "kalm-jev-nano",
@@ -280,7 +282,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -317,7 +319,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -354,7 +356,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -392,7 +394,7 @@
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
@@ -407,55 +409,59 @@
       "changed_state_margins": [
         -3.5078125,
         -3.078125,
-        -2
+        -2.0
       ]
     },
     "noul": {
       "native_margins": [
-        2.5625,
-        3.25
+        6.212890625,
+        -2.953125,
+        -2.4375
       ],
       "native_single_margins": [
-        2.5625,
-        3.25
+        6.212890625,
+        -2.9609375,
+        -2.46875
       ],
-      "native_batch_variation": 0,
+      "native_batch_variation": 0.03125,
       "backend_margins": [
-        2.59375,
-        3.28125
+        6.19921875,
+        -2.953125,
+        -2.4375
       ],
-      "native_backend_max_margin_diff": 0.03125,
-      "native_backend_max_probability_diff": 0.0020494549387243266,
-      "batch1_backend_margin_diff": 0,
-      "batch1_backend_probability_diff": 0,
+      "native_backend_max_margin_diff": 0.013671875,
+      "native_backend_max_probability_diff": 2.746792037955359e-05,
+      "off_cold_warm_max_margin_diff": 0.0,
+      "batch1_backend_margin_diff": 0.0,
+      "batch1_backend_probability_diff": 0.0,
       "choice_flips": [],
       "off": {
         "model": "kalm-jev-nano",
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9304582554941719
+            "noul": 0.9979730999195362
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9637799441350253
+            "noul": 0.37387582277169656
           }
         },
         "usage": {
-          "input_tokens": 292,
+          "input_tokens": 367,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": false,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 0,
-            "miss_documents": 2,
-            "encoded_documents": 2
+            "miss_documents": 3,
+            "encoded_documents": 3
           }
         }
       },
@@ -464,28 +470,28 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9304582554941719
+            "noul": 0.9979730999195362
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9637799441350253
+            "noul": 0.37387582277169656
           }
         },
         "usage": {
-          "input_tokens": 292,
+          "input_tokens": 367,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 0,
-            "miss_documents": 2,
-            "encoded_documents": 2
+            "miss_documents": 3,
+            "encoded_documents": 3
           }
         }
       },
@@ -494,26 +500,26 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9304582554941719
+            "noul": 0.9979730999195362
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.9637799441350253
+            "noul": 0.37387582277169656
           }
         },
         "usage": {
-          "input_tokens": 292,
+          "input_tokens": 367,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
-            "hit_documents": 2,
+            "unique_documents": 3,
+            "hit_documents": 3,
             "miss_documents": 0,
             "encoded_documents": 0
           }
@@ -525,34 +531,35 @@
         "answers": {
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9626731126558706
+            "noul": 0.983596967483837
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.96036116089903
+            "noul": 0.11124120650754304
           }
         },
         "usage": {
-          "input_tokens": 292,
+          "input_tokens": 367,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 2,
+            "unique_documents": 3,
             "hit_documents": 2,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       },
       "changed_state_margins": [
-        3.25,
-        3.1875
+        4.09375,
+        -4.015625,
+        -1.9375
       ]
     },
     "mixed": {
@@ -563,8 +570,9 @@
         -4.140625,
         -1.875,
         -1.8125,
-        2.0625,
-        2.1875
+        4.25,
+        -4.5,
+        -2.4375
       ],
       "native_single_margins": [
         -3.7880859375,
@@ -573,8 +581,9 @@
         -4.171875,
         -1.8125,
         -1.8125,
-        2.0625,
-        2.1875
+        4.25,
+        -4.484375,
+        -2.375
       ],
       "native_batch_variation": 0.0625,
       "backend_margins": [
@@ -583,14 +592,16 @@
         -5.09375,
         -4.140625,
         -1.875,
-        -1.875,
-        2.0625,
-        2.1875
+        -1.8125,
+        4.265625,
+        -4.5,
+        -2.375
       ],
       "native_backend_max_margin_diff": 0.0625,
-      "native_backend_max_probability_diff": 0.015605961991057737,
-      "batch1_backend_margin_diff": 0.0625,
-      "batch1_backend_probability_diff": 0.015605961991057737,
+      "native_backend_max_probability_diff": 0.006104812337242055,
+      "off_cold_warm_max_margin_diff": 0.0,
+      "batch1_backend_margin_diff": 0.0,
+      "batch1_backend_probability_diff": 0.0,
       "choice_flips": [],
       "off": {
         "model": "kalm-jev-nano",
@@ -608,12 +619,12 @@
           "bug_severity": {
             "type": "score",
             "probabilities": {
-              "0": 0.0493235475925366,
-              "1": 0.47533822620373173,
-              "2": 0.47533822620373173
+              "0": 0.04785642830266785,
+              "1": 0.46119938350254264,
+              "2": 0.49094418819478947
             },
-            "confidence": 0.22131097156739887,
-            "score": 1.4260146786111951,
+            "confidence": 0.22478062123586218,
+            "score": 1.4430877598921215,
             "legend": {
               "0": "Cosmetic; no impact to functionality",
               "1": "Broken or degraded feature, but workaround exists",
@@ -622,28 +633,28 @@
           },
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.8872045937171068
+            "noul": 0.9861513897844354
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.8991213772699436
+            "noul": 0.10669059394565118
           }
         },
         "usage": {
-          "input_tokens": 1072,
+          "input_tokens": 1165,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": false,
-            "unique_documents": 8,
+            "unique_documents": 9,
             "hit_documents": 0,
-            "miss_documents": 8,
-            "encoded_documents": 8
+            "miss_documents": 9,
+            "encoded_documents": 9
           }
         }
       },
@@ -663,12 +674,12 @@
           "bug_severity": {
             "type": "score",
             "probabilities": {
-              "0": 0.0493235475925366,
-              "1": 0.47533822620373173,
-              "2": 0.47533822620373173
+              "0": 0.04785642830266785,
+              "1": 0.46119938350254264,
+              "2": 0.49094418819478947
             },
-            "confidence": 0.22131097156739887,
-            "score": 1.4260146786111951,
+            "confidence": 0.22478062123586218,
+            "score": 1.4430877598921215,
             "legend": {
               "0": "Cosmetic; no impact to functionality",
               "1": "Broken or degraded feature, but workaround exists",
@@ -677,28 +688,28 @@
           },
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.8872045937171068
+            "noul": 0.9861513897844354
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.8991213772699436
+            "noul": 0.10669059394565118
           }
         },
         "usage": {
-          "input_tokens": 1072,
+          "input_tokens": 1165,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 8,
+            "unique_documents": 9,
             "hit_documents": 0,
-            "miss_documents": 8,
-            "encoded_documents": 8
+            "miss_documents": 9,
+            "encoded_documents": 9
           }
         }
       },
@@ -718,12 +729,12 @@
           "bug_severity": {
             "type": "score",
             "probabilities": {
-              "0": 0.0493235475925366,
-              "1": 0.47533822620373173,
-              "2": 0.47533822620373173
+              "0": 0.04785642830266785,
+              "1": 0.46119938350254264,
+              "2": 0.49094418819478947
             },
-            "confidence": 0.22131097156739887,
-            "score": 1.4260146786111951,
+            "confidence": 0.22478062123586218,
+            "score": 1.4430877598921215,
             "legend": {
               "0": "Cosmetic; no impact to functionality",
               "1": "Broken or degraded feature, but workaround exists",
@@ -732,26 +743,26 @@
           },
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.8872045937171068
+            "noul": 0.9861513897844354
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.8991213772699436
+            "noul": 0.10669059394565118
           }
         },
         "usage": {
-          "input_tokens": 1072,
+          "input_tokens": 1165,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 8,
-            "hit_documents": 8,
+            "unique_documents": 9,
+            "hit_documents": 9,
             "miss_documents": 0,
             "encoded_documents": 0
           }
@@ -788,28 +799,28 @@
           },
           "is_human_escalation": {
             "type": "noul",
-            "noul": 0.9626731126558706
+            "noul": 0.983596967483837
           },
           "is_repeat_contact": {
             "type": "noul",
-            "noul": 0.96036116089903
+            "noul": 0.11124120650754304
           }
         },
         "usage": {
-          "input_tokens": 1000,
+          "input_tokens": 1075,
           "output_tokens": 0
         },
         "kalm": {
           "backend": "transformers",
-          "template_version": "v1",
+          "template_version": "v3-noul-state-document",
           "confidence_method": "normalized_entropy_v1",
           "calibration": "none",
           "cache": {
             "enabled": true,
-            "unique_documents": 8,
+            "unique_documents": 9,
             "hit_documents": 8,
-            "miss_documents": 0,
-            "encoded_documents": 0
+            "miss_documents": 1,
+            "encoded_documents": 1
           }
         }
       },
@@ -819,12 +830,13 @@
         -4.8125,
         -3.5078125,
         -3.078125,
-        -2,
-        3.25,
-        3.1875
+        -2.0,
+        4.09375,
+        -4.015625,
+        -1.9375
       ]
     }
   },
-  "padding_max_margin_diff": 0,
+  "padding_max_margin_diff": 0.0,
   "passed": true
 }

@@ -1,68 +1,68 @@
-# KaLM-Jev v0.1 Test Report
+# KaLM-Jev Test Results
 
-Historical measurement date: 2026-09-21. Model alignment, semantic evaluation, performance, and CLI HTTP results were obtained with real R2 weights. Mocks were used only for unit tests that do not require weights.
+Values are read from the selected results directory; device and dtype come from run records. Host paths are omitted.
 
-Environment: H100 80GB MIG 3g.40gb (approximately 40GB available), PyTorch 2.8.0+cu129, and Transformers 5.3.0. Models were loaded sequentially, one per process. Precision checks used batch_size=4 and default pooling=4. See [requirements.txt](../requirements.txt) for dependency versions.
+Current template: `v3-noul-state-document`. Original Choice/Score adapters and MEP 4x are retained. Noul with criteria scores two separate Documents; omitted criteria uses state as Query and one Document with a direct yes/no sigmoid. No calibration was fitted.
 
-## Native inference and cache consistency
+## Native Inference Alignment
 
-Four input groups were tested: official Jev Choice, Score, and Noul examples, plus this project's mixed request. The native reference directly executed the checkpoint's `_predict_batch`, capturing yes/no logits before softmax.
+| Model | dtype | Device | Max margin difference | Max probability difference | Warm encoder calls |
+|---|---|---|---:|---:|---:|
+| nano | float32 | NVIDIA H100 80GB HBM3 MIG 3g.40gb | 2.3841858e-06 | 4.653257e-07 | 0 |
+| nano | bfloat16 | NVIDIA H100 80GB HBM3 MIG 3g.40gb | 0.0625 | 0.0061048123 | 0 |
+| small | float32 | NVIDIA H100 80GB HBM3 MIG 3g.40gb | 1.001358e-05 | 2.4877323e-06 | 0 |
+| small | bfloat16 | NVIDIA H100 80GB HBM3 MIG 3g.40gb | 0.0625 | 0.0034876829 | 0 |
+| large | float32 | NVIDIA H100 80GB HBM3 MIG 3g.40gb | 1.0490417e-05 | 1.4723277e-06 | 0 |
+| large | bfloat16 | NVIDIA H100 80GB HBM3 MIG 3g.40gb | 0.0625 | 0.0066669971 | 0 |
 
-| Model | dtype | Max margin difference | Max probability difference | Max native batch variation | Warm encoder calls | Batch choice flips |
-|---|---|---:|---:|---:|---:|---:|
-| nano | float32 | 2.8610229e-06 | 2.5686642e-07 | 4.2915344e-06 | 0 | 0 |
-| nano | bfloat16 | 0.0625 | 0.015605962 | 0.0625 | 0 | 0 |
-| small | float32 | 4.2915344e-06 | 1.233561e-06 | 8.5830688e-06 | 0 | 0 |
-| small | bfloat16 | 0.0625 | 0.0080576994 | 0.046875 | 0 | 0 |
-| large | float32 | 9.059906e-06 | 1.4723277e-06 | 1.3828278e-05 | 0 | 0 |
-| large | bfloat16 | 0.0625 | 0.014571463 | 0.0625 | 0 | 0 |
-
-For each group, cache off/cold/warm returned identical final answers and usage, with warm `encoded_documents=0`. Additional checks covered different document lengths and padding, batch_size=1, changed states that reuse encoding but rerun scoring, instruction changes, reversed Score levels, and encoding exactly one newly added document.
-
-FP32 acceptance targets were `atol=1e-5, rtol=1e-4`. BF16 is affected by logit quantization and batch shapes. The comparison bound explicitly used native batching variation plus a 0.0625 quantization step; actual differences are retained in JSON. FP32 independently checked mask and position consistency. The BF16 tolerance does not imply that every near-tie choice is invariant.
-
-## Official example outputs (BF16)
+## Example Outputs (BF16)
 
 | Model | Choice | P(returns) | Safari Score | Human-agent Noul | Repeat-contact Noul |
 |---|---|---:|---:|---:|---:|
-| nano | returns | 0.772172 | 1.441192 | 0.930458 | 0.963780 |
-| small | returns | 0.929612 | 1.125890 | 0.936285 | 0.880797 |
-| large | returns | 0.992038 | 1.080540 | 0.949669 | 0.962673 |
+| nano | returns | 0.772172 | 1.441192 | 0.997973 | 0.373876 |
+| small | returns | 0.929612 | 1.125890 | 0.998590 | 0.877477 |
+| large | returns | 0.992038 | 1.080540 | 0.998830 | 0.974043 |
 
-These are measured KaLM outputs, not a reproduction of Jev's weights or documented probabilities. Sources: [Choice](https://docs.typesafe.ai/primitives/choice), [Score](https://docs.typesafe.ai/primitives/score), and [Noul](https://docs.typesafe.ai/primitives/noul).
+## Semantic Evaluation
 
-## Bilingual semantic smoke evaluation
-
-There are 36 hand-reviewed cases: 12 per primitive, plus 12 additional repeat-contact judgments for Noul. The Noul threshold is 0.5, with no calibration. Score MAE uses manual levels 0/1/2 as references, not fitted Jev probabilities.
+36 hand-reviewed bilingual smoke cases: 12 per primitive plus 12 repeat-contact judgments. Noul threshold is 0.5. This is a small smoke set, not the JevBench leaderboard.
 
 | Model | Choice accuracy | Score MAE | Human-agent Noul accuracy | Repeat-contact accuracy |
 |---|---:|---:|---:|---:|
-| nano | 66.67% | 0.598001 | 50.00% | 16.67% |
-| small | 91.67% | 0.495509 | 50.00% | 41.67% |
-| large | 83.33% | 0.248574 | 83.33% | 50.00% |
+| nano | 66.67% | 0.598001 | 50.00% | 83.33% |
+| small | 91.67% | 0.495509 | 50.00% | 58.33% |
+| large | 83.33% | 0.248574 | 50.00% | 33.33% |
 
-The fixed v1 adapters have clear semantic limitations. Noul in particular can return affirmative scores for negation, missing evidence, or mere topic mentions. Engineering alignment does not establish Jev-level judgment quality. Templates and thresholds were not tuned to improve these small-sample results; incorrect predictions remain in the records. This sample does not support general capability rankings or calibration claims.
+### Omitted-criteria Noul Breakdown
 
-## Cache performance (Nano BF16)
+| Model | True positives | False positives | True negatives | False negatives |
+|---|---:|---:|---:|---:|
+| nano | 6 | 6 | 0 | 0 |
+| small | 6 | 6 | 0 | 0 |
+| large | 6 | 6 | 0 | 0 |
 
-Configuration: batch_size=8, pooling=4, and a 256 MiB cache. Each workload/mode had 30 measured requests, totaling 450 timing samples. Computation was warmed up first, CUDA was explicitly synchronized, warm requests used distinct queries, and model loading was excluded.
+A high value on one affirmative example does not establish discrimination: inspect false positives on explicit negation and unrelated statements. Raw responses are retained in the semantics JSON files.
+
+## Nano Cache Benchmark
+
+Samples per mode: 30; batch_size=8.
 
 | workload | off p50/p95 ms | cold p50/p95 ms | warm p50/p95 ms | speedup |
 |---|---:|---:|---:|---:|
-| choice-3 | 53.40/57.27 | 53.86/56.45 | 30.54/33.36 | 1.748x |
-| choice-32 | 215.83/222.32 | 219.27/227.04 | 131.89/137.08 | 1.636x |
-| choice-128 | 872.58/915.08 | 859.07/923.13 | 525.06/536.87 | 1.662x |
-| score-5 | 53.29/56.44 | 53.30/54.34 | 31.68/32.18 | 1.682x |
-| noul-8 | 55.83/58.62 | 55.37/56.84 | 33.82/35.80 | 1.651x |
+| choice-3 | 51.77/56.58 | 51.15/55.60 | 30.26/34.67 | 1.711x |
+| choice-32 | 213.89/219.92 | 211.25/233.19 | 131.44/135.38 | 1.627x |
+| choice-128 | 854.33/872.44 | 850.85/1020.02 | 500.91/512.17 | 1.706x |
+| score-5 | 52.49/57.63 | 75.90/89.25 | 31.00/32.80 | 1.693x |
+| noul-8 | 50.64/55.34 | 51.01/53.77 | 50.83/52.74 | 0.996x |
 
-All warm requests had actual `encoded_documents=0` and `encoder_calls=0`. JSON records also contain directly measured component timings, throughput, cache bytes, peak allocated CUDA memory, per-request token lengths, and raw samples. Encoder time was not inferred by subtracting total times. For short documents, encoding is only part of the workload; query/decoder computation still runs for every candidate.
+Warm requests have distinct states. Fixed criterion Documents are reused; for Noul without criteria each new state needs one encoder call, shared by the eight questions. Its warm mode does not mean an encoder cache hit.
 
-## Other checks and scope
+These are measured results; runs with different devices, query lengths, or batch settings are not directly comparable.
 
-The original run passed 32 unit/protocol/HTTP tests, including strict JSON parsing, candidate limits, LRU/disabled/invalidation behavior, mixed-answer mapping, stable aggregation, and HTTP 400/422/429/500/503. Starlette emitted one TestClient/httpx deprecation warning without affecting results. CLI help, Python compilation, and shell syntax checks also passed. Subsequent release checks passed 35 tests, wheel installation, and real Nano/CLI HTTP regression.
+Real CLI HTTP smoke passed. Run unit tests separately with python -m pytest -q.
 
-The real CLI launched Nano on a temporary loopback port. Actual HTTP calls for the official examples and mixed request passed, with zero document encoding on warm requests. The server was stopped after the tests.
+Results do not establish Jev-equivalent quality or calibrated probabilities. Public identities omit host directories and modification times.
 
-Full records are the `*-validation.json`, `*-semantics.json`, `*-benchmark.json`, and `http-smoke.json` files in this directory. Public metadata retains repository identifiers, file sizes, tokenizer/configuration/source SHA256 hashes, devices, and versions. Host directories and local modification times have been removed. Weight files have size metadata only; no full weight-content hash is claimed. Numerical measurements and bilingual evaluation text are unchanged. Raw logs, hostname-bearing JUnit XML, bytecode, and model weights are excluded.
+## Public JevBench Regression
 
-Unverified areas include other GPUs, the complete CPU path, FP16, contexts longer than those tested, full Small/Large cache-performance matrices, and broad evaluations across pooling ratios. No remote repository was published or pushed, and no public-facing service was left running.
+Nano: 122/231 correct (52.81%); 0 prediction changes against the selected candidate-adapter baseline; maximum probability difference 0. All 74 Noul items supply both criteria, so this checks the supplied-criteria path, not the new missing-criteria behavior. Query limit 8192, decoder limit 9216, BF16, MEP 4x.

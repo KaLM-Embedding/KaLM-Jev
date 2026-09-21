@@ -106,7 +106,11 @@ def run(args):
             changed["state"] = "No problem occurred. This is my first message. I do not need a human."
             events_before = len(encoder_events)
             changed_result, changed_detail = engine.evaluate_detailed(changed)
-            assert len(encoder_events) == events_before
+            changed_documents = {t.document for t in compile_request(Request.model_validate(changed))}
+            new_documents = changed_documents - {t.document for t in tasks}
+            assert changed_result["kalm"]["cache"]["encoded_documents"] == len(new_documents)
+            assert len(encoder_events) - events_before == changed_detail["encoder_calls"]
+            assert bool(changed_detail["encoder_calls"]) == bool(new_documents)
             assert changed_detail["margins"] != warm_detail["margins"]
             report["cases"][name] = {
                 "native_margins": reference, "native_single_margins": single_reference,
