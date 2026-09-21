@@ -245,3 +245,19 @@ See [aggregation formulas and compatibility](docs/aggregation/README.md).
 Run `python -m pytest -q` for unit tests. GPU checks cover native inference alignment, bilingual semantic cases, cache performance, and HTTP behavior.
 
 See [test commands and methodology](docs/testing/README.md) and [measured results](results/README.md).
+
+## Citation
+
+If you use KaLM-Jev or the underlying KaLM-Reranker models in your research, please cite:
+
+```bibtex
+@misc{zhao2026kalmrerankerv1,
+      title={KaLM-Reranker-V1: Fast but Not Late Interaction for Compressed Document Reranking},
+      author={Xinping Zhao and Jiaxin Xu and Ziqi Dai and Xin Zhang and Shouzheng Huang and Danyu Tang and Xinshuo Hu and Meishan Zhang and Baotian Hu and Min Zhang},
+      year={2026},
+      eprint={2606.22807},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2606.22807},
+}
+```
