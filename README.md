@@ -1,4 +1,4 @@
-# KaLM-Jev v0.1
+# KaLM-Jev
 
 A local Choice / Score / Noul service built on KaLM-Reranker R2. It uses PyTorch and Transformers, runs one model per process, and returns structured judgments without generating answer text.
 
