@@ -1,0 +1,1408 @@
+{
+  "model": "kalm-jev-large",
+  "identity": {
+    "model": "kalm-jev-large",
+    "revision": null,
+    "encoder_implementation": "native-r2-v1",
+    "document_template": "Document-v1",
+    "document_max_length": 1024,
+    "dtype": "torch.bfloat16",
+    "chunk_size": 4,
+    "transformers": "5.3.0",
+    "torch": "2.8.0+cu129",
+    "device": "cuda",
+    "repository": "KaLM-Embedding/KaLM-Reranker-V1-Large-R2",
+    "files": {
+      "config.json": {
+        "size_bytes": 6996,
+        "sha256": "cb9cd9526c0669c3397e0e332215f9b2b642edca075dea43819002ce6debdfe2"
+      },
+      "config_sentence_transformers.json": {
+        "size_bytes": 341,
+        "sha256": "cc976b42f51468317847c6d5a6ebd1531eeb85c61cf924310d093ee23fec002f"
+      },
+      "generation_config.json": {
+        "size_bytes": 190,
+        "sha256": "43e408f6617d77454167c6c345452ba55d5bc145dcde9ed9ec9db59266756d2d"
+      },
+      "kalm_cross_encoder.py": {
+        "size_bytes": 10752,
+        "sha256": "5307c25736f4be12c063b101d3fb2d3e7d23f6bb2124371412b66d5b26c23e3d"
+      },
+      "kalm_cross_encoder_config.json": {
+        "size_bytes": 263,
+        "sha256": "d3a90bd0b540b0792f32795a7adb327dded2367fdac253c2be2ee457ac2da44c"
+      },
+      "kalm_reranker.py": {
+        "size_bytes": 11253,
+        "sha256": "602784137f45a6b3f111bd89f7ad21719c127773d1a1fdccf63fd89d89dfc8c7"
+      },
+      "kalm_reranker_utils.py": {
+        "size_bytes": 7603,
+        "sha256": "083660647e785f58d73c20680c4e5db7139377101ba07333d6dbf9cafcf20129"
+      },
+      "model.safetensors": {
+        "size_bytes": 15018037032
+      },
+      "modules.json": {
+        "size_bytes": 115,
+        "sha256": "ec2633e5f91d4c924a881ae67fdc592dd422b87822b4e8b3e15cd621bc053053"
+      },
+      "tokenizer.json": {
+        "size_bytes": 33384387,
+        "sha256": "f5b325224482ec441ec5fbe2a5ac08c3758e0f9605f6e54368e31f736fcfb01d"
+      },
+      "tokenizer_config.json": {
+        "size_bytes": 772,
+        "sha256": "91605e4321058aa54733deaab787f60ea6a71a64906bd871fe6973216e6001f3"
+      }
+    }
+  },
+  "metrics": {
+    "choice_accuracy": 0.8333333333333334,
+    "choice_n": 12,
+    "score_mae": 0.24857409248089146,
+    "score_n": 12,
+    "noul_accuracy": 0.8333333333333334,
+    "noul_n": 12,
+    "repeat_contact_accuracy": 0.5,
+    "repeat_contact_n": 12,
+    "noul_threshold": 0.5
+  },
+  "cases": [
+    {
+      "id": "choice-0",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.991544627170685,
+              "shipping": 0.005043064619428781,
+              "billing": 0.003412308209886232
+            },
+            "confidence": 0.9504109015593132,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 364,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-1",
+      "expected": "shipping",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.016295038383861614,
+              "shipping": 0.9771211709545622,
+              "billing": 0.00658379066157617
+            },
+            "confidence": 0.8882486759952949,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 352,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-2",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.10125349186145279,
+              "shipping": 0.02404981232320757,
+              "billing": 0.8746966958153396
+            },
+            "confidence": 0.6007372705941538,
+            "choice": "billing"
+          }
+        },
+        "usage": {
+          "input_tokens": 355,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-3",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.8907631916370441,
+              "shipping": 0.0999408602916534,
+              "billing": 0.009295948071302422
+            },
+            "confidence": 0.6571037263366553,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 352,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-4",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.6573985666321273,
+              "shipping": 0.012040674752405497,
+              "billing": 0.33056075861546724
+            },
+            "confidence": 0.3674856672927017,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 361,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-5",
+      "expected": "shipping",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.04409073709885433,
+              "shipping": 0.7815270149050562,
+              "billing": 0.17438224799608948
+            },
+            "confidence": 0.4221439088176042,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 361,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-6",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.9856519537785868,
+              "shipping": 0.008010901521386594,
+              "billing": 0.006337144700026492
+            },
+            "confidence": 0.9226413027099182,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 355,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-7",
+      "expected": "shipping",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.0019258394438520286,
+              "shipping": 0.9976095301674982,
+              "billing": 0.0004646303886497077
+            },
+            "confidence": 0.9836207781948012,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 346,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-8",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.2744431266610819,
+              "shipping": 0.024741798259350793,
+              "billing": 0.7008150750795673
+            },
+            "confidence": 0.36689944696929166,
+            "choice": "billing"
+          }
+        },
+        "usage": {
+          "input_tokens": 361,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-9",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.8141888830969536,
+              "shipping": 0.18167009587649444,
+              "billing": 0.004141021026552012
+            },
+            "confidence": 0.5449369963828644,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 358,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-10",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.664876970474858,
+              "shipping": 0.011087873312425903,
+              "billing": 0.324035156212716
+            },
+            "confidence": 0.37517127814061324,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 343,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-11",
+      "expected": "other",
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.23822950348936525,
+              "shipping": 0.10246123269311902,
+              "billing": 0.18553332386822965,
+              "other": 0.4737759399492861
+            },
+            "confidence": 0.1043498107372951,
+            "choice": "other"
+          }
+        },
+        "usage": {
+          "input_tokens": 455,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 4,
+            "hit_documents": 3,
+            "miss_documents": 1,
+            "encoded_documents": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "score-0",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.9011042012822762,
+              "1": 0.09497568406459002,
+              "2": 0.003920114653133771
+            },
+            "confidence": 0.6912966535792369,
+            "score": 0.10281591337085756,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 332,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "score-1",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.007497129766279626,
+              "1": 0.9819302226500964,
+              "2": 0.010572647583624037
+            },
+            "confidence": 0.9065267633086793,
+            "score": 1.0030755178173445,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 335,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-2",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.0028336710938892044,
+              "1": 0.21146787111628293,
+              "2": 0.7856984577898278
+            },
+            "confidence": 0.5133194959594205,
+            "score": 1.7828647866959386,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 344,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-3",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.7264637708332182,
+              "1": 0.2672510860454231,
+              "2": 0.006285143121358682
+            },
+            "confidence": 0.4386807907237994,
+            "score": 0.27982137228814047,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 326,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-4",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.04181993212603525,
+              "1": 0.7648066608706514,
+              "2": 0.1933734070033133
+            },
+            "confidence": 0.40328373611123747,
+            "score": 1.151553474877278,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-5",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.015981868449939204,
+              "1": 0.9002791282855581,
+              "2": 0.08373900326450258
+            },
+            "confidence": 0.6647065894455286,
+            "score": 1.0677571348145634,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 338,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-6",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.9590190883156249,
+              "1": 0.039583445149859356,
+              "2": 0.0013974665345158352
+            },
+            "confidence": 0.8387568239980046,
+            "score": 0.042378378218891025,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-7",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.01842334732187632,
+              "1": 0.9449374515439796,
+              "2": 0.03663920113414401
+            },
+            "confidence": 0.7740277631627912,
+            "score": 1.0182158538122676,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-8",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.0021665805652764125,
+              "1": 0.06740034579135726,
+              "2": 0.9304330736433664
+            },
+            "confidence": 0.7613662838792713,
+            "score": 1.92826649307809,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 326,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-9",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.9514086779004244,
+              "1": 0.04736784889240747,
+              "2": 0.0012234732071681718
+            },
+            "confidence": 0.8178985743093619,
+            "score": 0.04981479530674381,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 323,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-10",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.03559836239842087,
+              "1": 0.6930136089666458,
+              "2": 0.27138802863493344
+            },
+            "confidence": 0.3384248793327699,
+            "score": 1.2357896662365127,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 323,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-11",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.2674499862175602,
+              "1": 0.34341257999613345,
+              "2": 0.3891374337863064
+            },
+            "confidence": 0.010530806835760909,
+            "score": 1.1216874475687462,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 344,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-0",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9496693674025232
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.7310585786300049
+          }
+        },
+        "usage": {
+          "input_tokens": 278,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 0,
+            "miss_documents": 2,
+            "encoded_documents": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-1",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9149009549929797
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.48438008427698437
+          }
+        },
+        "usage": {
+          "input_tokens": 284,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-2",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8354835371034369
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.5
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-3",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.14033624949008322
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.7879311956428947
+          }
+        },
+        "usage": {
+          "input_tokens": 270,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-4",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9399133498259924
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9688561694652216
+          }
+        },
+        "usage": {
+          "input_tokens": 286,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-5",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8175744761936437
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8740772351648677
+          }
+        },
+        "usage": {
+          "input_tokens": 282,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-6",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8872045937171068
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.42250463481418826
+          }
+        },
+        "usage": {
+          "input_tokens": 268,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-7",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.45326184801538616
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.4378234991142019
+          }
+        },
+        "usage": {
+          "input_tokens": 276,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-8",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.19193278644723683
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.30735801686526387
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-9",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.10087862273005653
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.7431680086124811
+          }
+        },
+        "usage": {
+          "input_tokens": 272,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-10",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9553191297273498
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9755769099458929
+          }
+        },
+        "usage": {
+          "input_tokens": 286,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-11",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-large",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8596637505099167
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9099070060380482
+          }
+        },
+        "usage": {
+          "input_tokens": 276,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    }
+  ],
+  "label_policy": "Hand-reviewed task expectations; absent prior contact is false per explicit criteria. Human-agent requests require affirmative evidence. No fitting performed."
+}

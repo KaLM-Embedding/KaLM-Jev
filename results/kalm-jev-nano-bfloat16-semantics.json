@@ -1,0 +1,1420 @@
+{
+  "model": "kalm-jev-nano",
+  "identity": {
+    "model": "kalm-jev-nano",
+    "revision": null,
+    "encoder_implementation": "native-r2-v1",
+    "document_template": "Document-v1",
+    "document_max_length": 1024,
+    "dtype": "torch.bfloat16",
+    "chunk_size": 4,
+    "transformers": "5.3.0",
+    "torch": "2.8.0+cu129",
+    "device": "cuda",
+    "repository": "KaLM-Embedding/KaLM-Reranker-V1-Nano-R2",
+    "files": {
+      "config.json": {
+        "size_bytes": 6104,
+        "sha256": "75926d34f90b64a3119e62535211bcd2305e8ea0ae4339773cb20dc84c8991d4"
+      },
+      "config_sentence_transformers.json": {
+        "size_bytes": 341,
+        "sha256": "cc976b42f51468317847c6d5a6ebd1531eeb85c61cf924310d093ee23fec002f"
+      },
+      "generation_config.json": {
+        "size_bytes": 190,
+        "sha256": "43e408f6617d77454167c6c345452ba55d5bc145dcde9ed9ec9db59266756d2d"
+      },
+      "kalm_cross_encoder.py": {
+        "size_bytes": 10752,
+        "sha256": "5307c25736f4be12c063b101d3fb2d3e7d23f6bb2124371412b66d5b26c23e3d"
+      },
+      "kalm_cross_encoder_config.json": {
+        "size_bytes": 263,
+        "sha256": "d3a90bd0b540b0792f32795a7adb327dded2367fdac253c2be2ee457ac2da44c"
+      },
+      "kalm_reranker.py": {
+        "size_bytes": 11253,
+        "sha256": "602784137f45a6b3f111bd89f7ad21719c127773d1a1fdccf63fd89d89dfc8c7"
+      },
+      "kalm_reranker_utils.py": {
+        "size_bytes": 7603,
+        "sha256": "083660647e785f58d73c20680c4e5db7139377101ba07333d6dbf9cafcf20129"
+      },
+      "model.safetensors": {
+        "size_bytes": 1572182264
+      },
+      "modules.json": {
+        "size_bytes": 115,
+        "sha256": "ec2633e5f91d4c924a881ae67fdc592dd422b87822b4e8b3e15cd621bc053053"
+      },
+      "test_sentence_transformers.py": {
+        "size_bytes": 3806,
+        "sha256": "1980f49cae171ff7a8ddd761567605ec28d6cd1a58776ceca57d73069e4d81a8"
+      },
+      "test_transformers.py": {
+        "size_bytes": 4392,
+        "sha256": "50e92f770e4570a583755627e127653cef1d7776a397f39092316ec073045fcc"
+      },
+      "test_vllm_offline.py": {
+        "size_bytes": 587,
+        "sha256": "fc5845ea1a7bf7c5ac1b2adc2130829f48f9047d6281a8e7f10c919831cf0177"
+      },
+      "tokenizer.json": {
+        "size_bytes": 33384387,
+        "sha256": "f5b325224482ec441ec5fbe2a5ac08c3758e0f9605f6e54368e31f736fcfb01d"
+      },
+      "tokenizer_config.json": {
+        "size_bytes": 772,
+        "sha256": "91605e4321058aa54733deaab787f60ea6a71a64906bd871fe6973216e6001f3"
+      }
+    }
+  },
+  "metrics": {
+    "choice_accuracy": 0.6666666666666666,
+    "choice_n": 12,
+    "score_mae": 0.598001218095709,
+    "score_n": 12,
+    "noul_accuracy": 0.5,
+    "noul_n": 12,
+    "repeat_contact_accuracy": 0.16666666666666666,
+    "repeat_contact_n": 12,
+    "noul_threshold": 0.5
+  },
+  "cases": [
+    {
+      "id": "choice-0",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.9003850124805167,
+              "shipping": 0.06127196905061863,
+              "billing": 0.03834301846886454
+            },
+            "confidence": 0.6444410932003842,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 364,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-1",
+      "expected": "shipping",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.08764545837966886,
+              "shipping": 0.8782991864273642,
+              "billing": 0.03405535519296697
+            },
+            "confidence": 0.5972707699854416,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 352,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-2",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.21120729549758935,
+              "shipping": 0.09083912585759513,
+              "billing": 0.6979535786448156
+            },
+            "confidence": 0.2742771327399133,
+            "choice": "billing"
+          }
+        },
+        "usage": {
+          "input_tokens": 355,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-3",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.7434447503723156,
+              "shipping": 0.23030843975619747,
+              "billing": 0.026246809871486934
+            },
+            "confidence": 0.4045976855264706,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 352,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-4",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.6044779111871371,
+              "shipping": 0.07448629351195483,
+              "billing": 0.321035795300908
+            },
+            "confidence": 0.2149174914760652,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 361,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-5",
+      "expected": "shipping",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.25279283049193163,
+              "shipping": 0.3736035847540342,
+              "billing": 0.3736035847540342
+            },
+            "confidence": 0.013931313082539476,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 361,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-6",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.6919786284079827,
+              "shipping": 0.23774429285877194,
+              "billing": 0.07027707873324526
+            },
+            "confidence": 0.28734829796881134,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 355,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-7",
+      "expected": "shipping",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.027318366078111132,
+              "shipping": 0.9705585457234422,
+              "billing": 0.0021230881984465274
+            },
+            "confidence": 0.8721818666836887,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 346,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-8",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.5716467021341683,
+              "shipping": 0.11389077749043414,
+              "billing": 0.31446252037539757
+            },
+            "confidence": 0.1526469454156253,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 361,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-9",
+      "expected": "returns",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.6766904162744506,
+              "shipping": 0.31964591920844443,
+              "billing": 0.0036636645171049965
+            },
+            "confidence": 0.40889466321184453,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 358,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-10",
+      "expected": "billing",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.5273414147319885,
+              "shipping": 0.3568170496904728,
+              "billing": 0.11584153557753886
+            },
+            "confidence": 0.13084798736077974,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 343,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "choice-11",
+      "expected": "other",
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.2524108671168091,
+              "shipping": 0.17347928281971564,
+              "billing": 0.41615516557134674,
+              "other": 0.15795468449212846
+            },
+            "confidence": 0.05668266610057826,
+            "choice": "billing"
+          }
+        },
+        "usage": {
+          "input_tokens": 455,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 4,
+            "hit_documents": 3,
+            "miss_documents": 1,
+            "encoded_documents": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "score-0",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.26287170512449465,
+              "1": 0.45066695149193936,
+              "2": 0.28646134338356605
+            },
+            "confidence": 0.027378662313551905,
+            "score": 1.0235896382590715,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 332,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "score-1",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.030421873368259002,
+              "1": 0.7088184071261434,
+              "2": 0.2607597195055975
+            },
+            "confidence": 0.36219810730984703,
+            "score": 1.2303378461373384,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 335,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-2",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.014055797257317234,
+              "1": 0.23042142774351032,
+              "2": 0.7555227749991725
+            },
+            "confidence": 0.4447774059510077,
+            "score": 1.7414669777418554,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 344,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-3",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.13761204240120906,
+              "1": 0.4076365379933909,
+              "2": 0.45475141960539994
+            },
+            "confidence": 0.09241959977873992,
+            "score": 1.3171393772041908,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 326,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-4",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.06144341125279222,
+              "1": 0.40776651114692214,
+              "2": 0.5307900776002856
+            },
+            "confidence": 0.2050038079217109,
+            "score": 1.4693466663474934,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-5",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.04749170589764189,
+              "1": 0.32202126479915316,
+              "2": 0.6304870293032049
+            },
+            "confidence": 0.2714160176140553,
+            "score": 1.582995323405563,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 338,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-6",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.30615710351442293,
+              "1": 0.3469214482427886,
+              "2": 0.3469214482427886
+            },
+            "confidence": 0.0015344377123562847,
+            "score": 1.0407643447283657,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-7",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.03299067129238505,
+              "1": 0.4345668697799138,
+              "2": 0.5324424589277011
+            },
+            "confidence": 0.2624266505089127,
+            "score": 1.4994517876353162,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 329,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-8",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.05068263459343649,
+              "1": 0.16879894615355237,
+              "2": 0.7805184192530111
+            },
+            "confidence": 0.41302708706110836,
+            "score": 1.7298357846595747,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 326,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-9",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.6044545015671744,
+              "1": 0.22236638425009483,
+              "2": 0.17317911418273074
+            },
+            "confidence": 0.14230965311203403,
+            "score": 0.5687246126155563,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 323,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-10",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.03712529390916502,
+              "1": 0.34949386708472496,
+              "2": 0.6133808390061101
+            },
+            "confidence": 0.28138031834818933,
+            "score": 1.576255545096945,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 323,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "score-11",
+      "expected": 2,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.04281167062691085,
+              "1": 0.41907954367740313,
+              "2": 0.5381087856956861
+            },
+            "confidence": 0.24192413360961917,
+            "score": 1.4952971150687753,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 344,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-0",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9284088005554476
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9539660976007597
+          }
+        },
+        "usage": {
+          "input_tokens": 278,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 0,
+            "miss_documents": 2,
+            "encoded_documents": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-1",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9732407168145568
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9715639669551474
+          }
+        },
+        "usage": {
+          "input_tokens": 284,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-2",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.941654159388319
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.96036116089903
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-3",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.96036116089903
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9626731126558706
+          }
+        },
+        "usage": {
+          "input_tokens": 270,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-4",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9553191297273498
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9790357591818724
+          }
+        },
+        "usage": {
+          "input_tokens": 286,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-5",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.96036116089903
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9706877692486436
+          }
+        },
+        "usage": {
+          "input_tokens": 282,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-6",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9525741268224334
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9465966702001757
+          }
+        },
+        "usage": {
+          "input_tokens": 268,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-7",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9626731126558706
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9579122720843811
+          }
+        },
+        "usage": {
+          "input_tokens": 276,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-8",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8991213772699436
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9196425311777929
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-9",
+      "expected": 0,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9539660976007597
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9566342012360932
+          }
+        },
+        "usage": {
+          "input_tokens": 272,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-10",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9553191297273498
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9715639669551474
+          }
+        },
+        "usage": {
+          "input_tokens": 286,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "noul-11",
+      "expected": 1,
+      "response": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9615338079816756
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9715639669551474
+          }
+        },
+        "usage": {
+          "input_tokens": 276,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      }
+    }
+  ],
+  "label_policy": "Hand-reviewed task expectations; absent prior contact is false per explicit criteria. Human-agent requests require affirmative evidence. No fitting performed."
+}

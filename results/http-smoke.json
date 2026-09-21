@@ -1,0 +1,164 @@
+{
+  "health": {
+    "status": "ok",
+    "model": "kalm-jev-nano",
+    "backend": "transformers"
+  },
+  "requests": {
+    "choice": {
+      "model": "kalm-jev-nano",
+      "answers": {
+        "department": {
+          "type": "choice",
+          "probabilities": {
+            "returns": 0.7721718394965245,
+            "shipping": 0.13844278218873873,
+            "billing": 0.08938537831473678
+          },
+          "confidence": 0.3726322518938231,
+          "choice": "returns"
+        }
+      },
+      "usage": {
+        "input_tokens": 373,
+        "output_tokens": 0
+      },
+      "kalm": {
+        "backend": "transformers",
+        "template_version": "v1",
+        "confidence_method": "normalized_entropy_v1",
+        "calibration": "none",
+        "cache": {
+          "enabled": true,
+          "unique_documents": 3,
+          "hit_documents": 3,
+          "miss_documents": 0,
+          "encoded_documents": 0
+        }
+      }
+    },
+    "score": {
+      "model": "kalm-jev-nano",
+      "answers": {
+        "bug_severity": {
+          "type": "score",
+          "probabilities": {
+            "0": 0.058788366226320506,
+            "1": 0.4412311915846739,
+            "2": 0.49998044218900567
+          },
+          "confidence": 0.20428339336338697,
+          "score": 1.4411920759626853,
+          "legend": {
+            "0": "Cosmetic; no impact to functionality",
+            "1": "Broken or degraded feature, but workaround exists",
+            "2": "Blocking issue; no workaround exists"
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 368,
+        "output_tokens": 0
+      },
+      "kalm": {
+        "backend": "transformers",
+        "template_version": "v1",
+        "confidence_method": "normalized_entropy_v1",
+        "calibration": "none",
+        "cache": {
+          "enabled": true,
+          "unique_documents": 3,
+          "hit_documents": 3,
+          "miss_documents": 0,
+          "encoded_documents": 0
+        }
+      }
+    },
+    "noul": {
+      "model": "kalm-jev-nano",
+      "answers": {
+        "is_human_escalation": {
+          "type": "noul",
+          "noul": 0.9304582554941719
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "noul": 0.9637799441350253
+        }
+      },
+      "usage": {
+        "input_tokens": 292,
+        "output_tokens": 0
+      },
+      "kalm": {
+        "backend": "transformers",
+        "template_version": "v1",
+        "confidence_method": "normalized_entropy_v1",
+        "calibration": "none",
+        "cache": {
+          "enabled": true,
+          "unique_documents": 2,
+          "hit_documents": 2,
+          "miss_documents": 0,
+          "encoded_documents": 0
+        }
+      }
+    },
+    "mixed": {
+      "model": "kalm-jev-nano",
+      "answers": {
+        "department": {
+          "type": "choice",
+          "probabilities": {
+            "returns": 0.49836286292103155,
+            "shipping": 0.36711104954443213,
+            "billing": 0.13452608753453632
+          },
+          "confidence": 0.10358653154911845,
+          "choice": "returns"
+        },
+        "bug_severity": {
+          "type": "score",
+          "probabilities": {
+            "0": 0.0493235475925366,
+            "1": 0.47533822620373173,
+            "2": 0.47533822620373173
+          },
+          "confidence": 0.22131097156739887,
+          "score": 1.4260146786111951,
+          "legend": {
+            "0": "Cosmetic; no impact to functionality",
+            "1": "Broken or degraded feature, but workaround exists",
+            "2": "Blocking issue; no workaround exists"
+          }
+        },
+        "is_human_escalation": {
+          "type": "noul",
+          "noul": 0.8872045937171068
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "noul": 0.8991213772699436
+        }
+      },
+      "usage": {
+        "input_tokens": 1072,
+        "output_tokens": 0
+      },
+      "kalm": {
+        "backend": "transformers",
+        "template_version": "v1",
+        "confidence_method": "normalized_entropy_v1",
+        "calibration": "none",
+        "cache": {
+          "enabled": true,
+          "unique_documents": 8,
+          "hit_documents": 8,
+          "miss_documents": 0,
+          "encoded_documents": 0
+        }
+      }
+    }
+  },
+  "passed": true
+}

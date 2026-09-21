@@ -1,0 +1,830 @@
+{
+  "model": "kalm-jev-nano",
+  "identity": {
+    "model": "kalm-jev-nano",
+    "revision": null,
+    "encoder_implementation": "native-r2-v1",
+    "document_template": "Document-v1",
+    "document_max_length": 1024,
+    "dtype": "torch.bfloat16",
+    "chunk_size": 4,
+    "transformers": "5.3.0",
+    "torch": "2.8.0+cu129",
+    "device": "cuda",
+    "repository": "KaLM-Embedding/KaLM-Reranker-V1-Nano-R2",
+    "files": {
+      "config.json": {
+        "size_bytes": 6104,
+        "sha256": "75926d34f90b64a3119e62535211bcd2305e8ea0ae4339773cb20dc84c8991d4"
+      },
+      "config_sentence_transformers.json": {
+        "size_bytes": 341,
+        "sha256": "cc976b42f51468317847c6d5a6ebd1531eeb85c61cf924310d093ee23fec002f"
+      },
+      "generation_config.json": {
+        "size_bytes": 190,
+        "sha256": "43e408f6617d77454167c6c345452ba55d5bc145dcde9ed9ec9db59266756d2d"
+      },
+      "kalm_cross_encoder.py": {
+        "size_bytes": 10752,
+        "sha256": "5307c25736f4be12c063b101d3fb2d3e7d23f6bb2124371412b66d5b26c23e3d"
+      },
+      "kalm_cross_encoder_config.json": {
+        "size_bytes": 263,
+        "sha256": "d3a90bd0b540b0792f32795a7adb327dded2367fdac253c2be2ee457ac2da44c"
+      },
+      "kalm_reranker.py": {
+        "size_bytes": 11253,
+        "sha256": "602784137f45a6b3f111bd89f7ad21719c127773d1a1fdccf63fd89d89dfc8c7"
+      },
+      "kalm_reranker_utils.py": {
+        "size_bytes": 7603,
+        "sha256": "083660647e785f58d73c20680c4e5db7139377101ba07333d6dbf9cafcf20129"
+      },
+      "model.safetensors": {
+        "size_bytes": 1572182264
+      },
+      "modules.json": {
+        "size_bytes": 115,
+        "sha256": "ec2633e5f91d4c924a881ae67fdc592dd422b87822b4e8b3e15cd621bc053053"
+      },
+      "test_sentence_transformers.py": {
+        "size_bytes": 3806,
+        "sha256": "1980f49cae171ff7a8ddd761567605ec28d6cd1a58776ceca57d73069e4d81a8"
+      },
+      "test_transformers.py": {
+        "size_bytes": 4392,
+        "sha256": "50e92f770e4570a583755627e127653cef1d7776a397f39092316ec073045fcc"
+      },
+      "test_vllm_offline.py": {
+        "size_bytes": 587,
+        "sha256": "fc5845ea1a7bf7c5ac1b2adc2130829f48f9047d6281a8e7f10c919831cf0177"
+      },
+      "tokenizer.json": {
+        "size_bytes": 33384387,
+        "sha256": "f5b325224482ec441ec5fbe2a5ac08c3758e0f9605f6e54368e31f736fcfb01d"
+      },
+      "tokenizer_config.json": {
+        "size_bytes": 772,
+        "sha256": "91605e4321058aa54733deaab787f60ea6a71a64906bd871fe6973216e6001f3"
+      }
+    }
+  },
+  "dtype": "bfloat16",
+  "device": "cuda",
+  "device_name": "NVIDIA H100 80GB HBM3 MIG 3g.40gb",
+  "torch": "2.8.0+cu129",
+  "transformers": "5.3.0",
+  "cases": {
+    "choice": {
+      "native_margins": [
+        -4.03125,
+        -5.75,
+        -6.1875
+      ],
+      "native_single_margins": [
+        -4.03125,
+        -5.6875,
+        -6.1875
+      ],
+      "native_batch_variation": 0.0625,
+      "backend_margins": [
+        -4.03125,
+        -5.75,
+        -6.1875
+      ],
+      "native_backend_max_margin_diff": 0,
+      "native_backend_max_probability_diff": 0,
+      "batch1_backend_margin_diff": 0,
+      "batch1_backend_probability_diff": 0,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.7721718394965245,
+              "shipping": 0.13844278218873873,
+              "billing": 0.08938537831473678
+            },
+            "confidence": 0.3726322518938231,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 373,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.7721718394965245,
+              "shipping": 0.13844278218873873,
+              "billing": 0.08938537831473678
+            },
+            "confidence": 0.3726322518938231,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 373,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.7721718394965245,
+              "shipping": 0.13844278218873873,
+              "billing": 0.08938537831473678
+            },
+            "confidence": 0.3726322518938231,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 373,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.3540143232469658,
+              "shipping": 0.3681166506732852,
+              "billing": 0.27786902607974906
+            },
+            "confidence": 0.006624297888472297,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 364,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        -4.5703125,
+        -4.53125,
+        -4.8125
+      ]
+    },
+    "score": {
+      "native_margins": [
+        -4.328125,
+        -2.3125,
+        -2.1875
+      ],
+      "native_single_margins": [
+        -4.3125,
+        -2.28125,
+        -2.15625
+      ],
+      "native_batch_variation": 0.03125,
+      "backend_margins": [
+        -4.328125,
+        -2.3125,
+        -2.1875
+      ],
+      "native_backend_max_margin_diff": 0,
+      "native_backend_max_probability_diff": 0,
+      "batch1_backend_margin_diff": 0,
+      "batch1_backend_probability_diff": 0,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.058788366226320506,
+              "1": 0.4412311915846739,
+              "2": 0.49998044218900567
+            },
+            "confidence": 0.20428339336338697,
+            "score": 1.4411920759626853,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.058788366226320506,
+              "1": 0.4412311915846739,
+              "2": 0.49998044218900567
+            },
+            "confidence": 0.20428339336338697,
+            "score": 1.4411920759626853,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.058788366226320506,
+              "1": 0.4412311915846739,
+              "2": 0.49998044218900567
+            },
+            "confidence": 0.20428339336338697,
+            "score": 1.4411920759626853,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.14177124400877814,
+              "1": 0.21787081620589738,
+              "2": 0.6403579397853245
+            },
+            "confidence": 0.1858962303103332,
+            "score": 1.4985866957765464,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 344,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        -3.5078125,
+        -3.078125,
+        -2
+      ]
+    },
+    "noul": {
+      "native_margins": [
+        2.5625,
+        3.25
+      ],
+      "native_single_margins": [
+        2.5625,
+        3.25
+      ],
+      "native_batch_variation": 0,
+      "backend_margins": [
+        2.59375,
+        3.28125
+      ],
+      "native_backend_max_margin_diff": 0.03125,
+      "native_backend_max_probability_diff": 0.0020494549387243266,
+      "batch1_backend_margin_diff": 0,
+      "batch1_backend_probability_diff": 0,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9304582554941719
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9637799441350253
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 2,
+            "hit_documents": 0,
+            "miss_documents": 2,
+            "encoded_documents": 2
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9304582554941719
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9637799441350253
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 0,
+            "miss_documents": 2,
+            "encoded_documents": 2
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9304582554941719
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.9637799441350253
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9626731126558706
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.96036116089903
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        3.25,
+        3.1875
+      ]
+    },
+    "mixed": {
+      "native_margins": [
+        -3.7841796875,
+        -4.08984375,
+        -5.09375,
+        -4.140625,
+        -1.875,
+        -1.8125,
+        2.0625,
+        2.1875
+      ],
+      "native_single_margins": [
+        -3.7880859375,
+        -4.078125,
+        -5.125,
+        -4.171875,
+        -1.8125,
+        -1.8125,
+        2.0625,
+        2.1875
+      ],
+      "native_batch_variation": 0.0625,
+      "backend_margins": [
+        -3.7841796875,
+        -4.08984375,
+        -5.09375,
+        -4.140625,
+        -1.875,
+        -1.875,
+        2.0625,
+        2.1875
+      ],
+      "native_backend_max_margin_diff": 0.0625,
+      "native_backend_max_probability_diff": 0.015605961991057737,
+      "batch1_backend_margin_diff": 0.0625,
+      "batch1_backend_probability_diff": 0.015605961991057737,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.49836286292103155,
+              "shipping": 0.36711104954443213,
+              "billing": 0.13452608753453632
+            },
+            "confidence": 0.10358653154911845,
+            "choice": "returns"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.0493235475925366,
+              "1": 0.47533822620373173,
+              "2": 0.47533822620373173
+            },
+            "confidence": 0.22131097156739887,
+            "score": 1.4260146786111951,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8872045937171068
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8991213772699436
+          }
+        },
+        "usage": {
+          "input_tokens": 1072,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 8,
+            "hit_documents": 0,
+            "miss_documents": 8,
+            "encoded_documents": 8
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.49836286292103155,
+              "shipping": 0.36711104954443213,
+              "billing": 0.13452608753453632
+            },
+            "confidence": 0.10358653154911845,
+            "choice": "returns"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.0493235475925366,
+              "1": 0.47533822620373173,
+              "2": 0.47533822620373173
+            },
+            "confidence": 0.22131097156739887,
+            "score": 1.4260146786111951,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8872045937171068
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8991213772699436
+          }
+        },
+        "usage": {
+          "input_tokens": 1072,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 8,
+            "hit_documents": 0,
+            "miss_documents": 8,
+            "encoded_documents": 8
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.49836286292103155,
+              "shipping": 0.36711104954443213,
+              "billing": 0.13452608753453632
+            },
+            "confidence": 0.10358653154911845,
+            "choice": "returns"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.0493235475925366,
+              "1": 0.47533822620373173,
+              "2": 0.47533822620373173
+            },
+            "confidence": 0.22131097156739887,
+            "score": 1.4260146786111951,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.8872045937171068
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8991213772699436
+          }
+        },
+        "usage": {
+          "input_tokens": 1072,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 8,
+            "hit_documents": 8,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-nano",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.3540143232469658,
+              "shipping": 0.3681166506732852,
+              "billing": 0.27786902607974906
+            },
+            "confidence": 0.006624297888472297,
+            "choice": "shipping"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.14177124400877814,
+              "1": 0.21787081620589738,
+              "2": 0.6403579397853245
+            },
+            "confidence": 0.1858962303103332,
+            "score": 1.4985866957765464,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9626731126558706
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.96036116089903
+          }
+        },
+        "usage": {
+          "input_tokens": 1000,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 8,
+            "hit_documents": 8,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        -4.5703125,
+        -4.53125,
+        -4.8125,
+        -3.5078125,
+        -3.078125,
+        -2,
+        3.25,
+        3.1875
+      ]
+    }
+  },
+  "padding_max_margin_diff": 0,
+  "passed": true
+}

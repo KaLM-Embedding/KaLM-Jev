@@ -1,0 +1,831 @@
+[
+  {
+    "id": "choice-0",
+    "kind": "choice",
+    "language": "en",
+    "request": {
+      "state": "I received size 8 shoes but ordered size 10. Please exchange them.",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "returns"
+  },
+  {
+    "id": "choice-1",
+    "kind": "choice",
+    "language": "en",
+    "request": {
+      "state": "Tracking says in transit for two weeks. Where is my package?",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "shipping"
+  },
+  {
+    "id": "choice-2",
+    "kind": "choice",
+    "language": "en",
+    "request": {
+      "state": "I was charged twice for the same order. Please fix the charge.",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "billing"
+  },
+  {
+    "id": "choice-3",
+    "kind": "choice",
+    "language": "en",
+    "request": {
+      "state": "The parcel arrived on time, but the shoes inside are damaged.",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "returns"
+  },
+  {
+    "id": "choice-4",
+    "kind": "choice",
+    "language": "en",
+    "request": {
+      "state": "I do not want an exchange. I only need a copy of my invoice.",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "billing"
+  },
+  {
+    "id": "choice-5",
+    "kind": "choice",
+    "language": "en",
+    "request": {
+      "state": "My invoice is fine and the size is right; the package has not arrived.",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "shipping"
+  },
+  {
+    "id": "choice-6",
+    "kind": "choice",
+    "language": "zh",
+    "request": {
+      "state": "鞋码发错了，请帮我换成42码。",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "returns"
+  },
+  {
+    "id": "choice-7",
+    "kind": "choice",
+    "language": "zh",
+    "request": {
+      "state": "物流已经十天没更新，包裹在哪里？",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "shipping"
+  },
+  {
+    "id": "choice-8",
+    "kind": "choice",
+    "language": "zh",
+    "request": {
+      "state": "同一订单扣了两次钱，请退回多扣的款。",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "billing"
+  },
+  {
+    "id": "choice-9",
+    "kind": "choice",
+    "language": "zh",
+    "request": {
+      "state": "不是快递丢失，是寄来的商品破损，要换货。",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "returns"
+  },
+  {
+    "id": "choice-10",
+    "kind": "choice",
+    "language": "zh",
+    "request": {
+      "state": "我不需要换货，只想查询发票。",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "billing"
+  },
+  {
+    "id": "choice-11",
+    "kind": "choice",
+    "language": "zh",
+    "request": {
+      "state": "今天天气如何？我没有购物问题。",
+      "questions": {
+        "department": {
+          "type": "choice",
+          "instructions": "Which team should handle this?",
+          "criteria": {
+            "returns": "Exchanges, wrong or damaged items",
+            "shipping": "Delivery status, delays, lost packages",
+            "billing": "Charges, invoices, payment problems",
+            "other": "Unrelated to returns, shipping or billing"
+          }
+        }
+      }
+    },
+    "question_id": "department",
+    "expected": "other"
+  },
+  {
+    "id": "score-0",
+    "kind": "score",
+    "language": "en",
+    "request": {
+      "state": "The label is two pixels off center. All features work normally.",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 0
+  },
+  {
+    "id": "score-1",
+    "kind": "score",
+    "language": "en",
+    "request": {
+      "state": "PDF export is broken, but CSV export works and can be converted.",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 1
+  },
+  {
+    "id": "score-2",
+    "kind": "score",
+    "language": "en",
+    "request": {
+      "state": "Every login attempt fails. No user can access the service and there is no workaround.",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 2
+  },
+  {
+    "id": "score-3",
+    "kind": "score",
+    "language": "en",
+    "request": {
+      "state": "The button color is wrong, but clicking it works.",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 0
+  },
+  {
+    "id": "score-4",
+    "kind": "score",
+    "language": "en",
+    "request": {
+      "state": "Export fails in Safari; switching to Chrome fully resolves it.",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 1
+  },
+  {
+    "id": "score-5",
+    "kind": "score",
+    "language": "en",
+    "request": {
+      "state": "Neither PDF nor CSV export works. There is no alternative way to export.",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 2
+  },
+  {
+    "id": "score-6",
+    "kind": "score",
+    "language": "zh",
+    "request": {
+      "state": "图标偏移了两像素，所有功能都能正常使用。",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 0
+  },
+  {
+    "id": "score-7",
+    "kind": "score",
+    "language": "zh",
+    "request": {
+      "state": "导出PDF失败，但可以导出CSV再转换。",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 1
+  },
+  {
+    "id": "score-8",
+    "kind": "score",
+    "language": "zh",
+    "request": {
+      "state": "所有用户都无法登录，没有任何绕过方法。",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 2
+  },
+  {
+    "id": "score-9",
+    "kind": "score",
+    "language": "zh",
+    "request": {
+      "state": "只是文字颜色不对，没有功能故障。",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 0
+  },
+  {
+    "id": "score-10",
+    "kind": "score",
+    "language": "zh",
+    "request": {
+      "state": "Safari下不能导出，切换Chrome就可以完成。",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 1
+  },
+  {
+    "id": "score-11",
+    "kind": "score",
+    "language": "zh",
+    "request": {
+      "state": "不是仅有外观问题：所有导出方式都失败了，也没有替代方案。",
+      "questions": {
+        "bug_severity": {
+          "type": "score",
+          "instructions": "How severe is the reported issue?",
+          "criteria": [
+            "Cosmetic; no impact to functionality",
+            "Broken or degraded feature, but workaround exists",
+            "Blocking issue; no workaround exists"
+          ]
+        }
+      }
+    },
+    "question_id": "bug_severity",
+    "expected": 2
+  },
+  {
+    "id": "noul-0",
+    "kind": "noul",
+    "language": "en",
+    "request": {
+      "state": "Please connect me to a real human support agent.",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 1,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-1",
+    "kind": "noul",
+    "language": "en",
+    "request": {
+      "state": "I do not need a human agent; the bot solved it.",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 0,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-2",
+    "kind": "noul",
+    "language": "en",
+    "request": {
+      "state": "Your help page mentions human agents. I am only asking how to reset my password.",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 0,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-3",
+    "kind": "noul",
+    "language": "en",
+    "request": {
+      "state": "Thanks, everything works now.",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 0,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-4",
+    "kind": "noul",
+    "language": "en",
+    "request": {
+      "state": "I asked three times already. Please let me speak to a person.",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 1,
+    "additional_expected": {
+      "is_repeat_contact": 1
+    }
+  },
+  {
+    "id": "noul-5",
+    "kind": "noul",
+    "language": "en",
+    "request": {
+      "state": "This is my first contact. Could a human help me?",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 1,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-6",
+    "kind": "noul",
+    "language": "zh",
+    "request": {
+      "state": "请转人工客服。",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 1,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-7",
+    "kind": "noul",
+    "language": "zh",
+    "request": {
+      "state": "不用转人工，机器人已经解决了。",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 0,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-8",
+    "kind": "noul",
+    "language": "zh",
+    "request": {
+      "state": "帮助页面提到了人工客服，我只是想知道如何重置密码。",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 0,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-9",
+    "kind": "noul",
+    "language": "zh",
+    "request": {
+      "state": "谢谢，已经修好了。",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 0,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  },
+  {
+    "id": "noul-10",
+    "kind": "noul",
+    "language": "zh",
+    "request": {
+      "state": "我之前联系过三次了，请让我和真人客服交流。",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 1,
+    "additional_expected": {
+      "is_repeat_contact": 1
+    }
+  },
+  {
+    "id": "noul-11",
+    "kind": "noul",
+    "language": "zh",
+    "request": {
+      "state": "这是我第一次联系，请转人工。",
+      "questions": {
+        "is_human_escalation": {
+          "type": "noul",
+          "instructions": "Is the customer asking for a human agent?"
+        },
+        "is_repeat_contact": {
+          "type": "noul",
+          "instructions": "Has the customer contacted support about this before?",
+          "criteria": {
+            "true": "Mentions a prior attempt, ticket, or that they have asked before",
+            "false": "No sign of any previous contact"
+          }
+        }
+      }
+    },
+    "question_id": "is_human_escalation",
+    "expected": 1,
+    "additional_expected": {
+      "is_repeat_contact": 0
+    }
+  }
+]

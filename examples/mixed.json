@@ -1,0 +1,35 @@
+{
+  "state": "The export button crashes in Safari but works in Chrome. I have asked three times now; please connect me to a real person.",
+  "questions": {
+    "department": {
+      "type": "choice",
+      "instructions": "Which team should handle this?",
+      "criteria": {
+        "returns": "Exchanges, wrong or damaged items",
+        "shipping": "Delivery status, delays, lost packages",
+        "billing": "Charges, invoices, payment problems"
+      }
+    },
+    "bug_severity": {
+      "type": "score",
+      "instructions": "How severe is the reported issue?",
+      "criteria": [
+        "Cosmetic; no impact to functionality",
+        "Broken or degraded feature, but workaround exists",
+        "Blocking issue; no workaround exists"
+      ]
+    },
+    "is_human_escalation": {
+      "type": "noul",
+      "instructions": "Is the customer asking for a human agent?"
+    },
+    "is_repeat_contact": {
+      "type": "noul",
+      "instructions": "Has the customer contacted support about this before?",
+      "criteria": {
+        "true": "Mentions a prior attempt, ticket, or that they have asked before",
+        "false": "No sign of any previous contact"
+      }
+    }
+  }
+}

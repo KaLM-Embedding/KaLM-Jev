@@ -1,0 +1,818 @@
+{
+  "model": "kalm-jev-small",
+  "identity": {
+    "model": "kalm-jev-small",
+    "revision": null,
+    "encoder_implementation": "native-r2-v1",
+    "document_template": "Document-v1",
+    "document_max_length": 1024,
+    "dtype": "torch.float32",
+    "chunk_size": 4,
+    "transformers": "5.3.0",
+    "torch": "2.8.0+cu129",
+    "device": "cuda",
+    "repository": "KaLM-Embedding/KaLM-Reranker-V1-Small-R2",
+    "files": {
+      "config.json": {
+        "size_bytes": 6548,
+        "sha256": "7613057698c8e1f670a2a1b04155c40181f614b5206dceb427dc7fb97f2cf50f"
+      },
+      "config_sentence_transformers.json": {
+        "size_bytes": 341,
+        "sha256": "cc976b42f51468317847c6d5a6ebd1531eeb85c61cf924310d093ee23fec002f"
+      },
+      "generation_config.json": {
+        "size_bytes": 190,
+        "sha256": "43e408f6617d77454167c6c345452ba55d5bc145dcde9ed9ec9db59266756d2d"
+      },
+      "kalm_cross_encoder.py": {
+        "size_bytes": 10752,
+        "sha256": "5307c25736f4be12c063b101d3fb2d3e7d23f6bb2124371412b66d5b26c23e3d"
+      },
+      "kalm_cross_encoder_config.json": {
+        "size_bytes": 263,
+        "sha256": "d3a90bd0b540b0792f32795a7adb327dded2367fdac253c2be2ee457ac2da44c"
+      },
+      "kalm_reranker.py": {
+        "size_bytes": 11253,
+        "sha256": "602784137f45a6b3f111bd89f7ad21719c127773d1a1fdccf63fd89d89dfc8c7"
+      },
+      "kalm_reranker_utils.py": {
+        "size_bytes": 7603,
+        "sha256": "083660647e785f58d73c20680c4e5db7139377101ba07333d6dbf9cafcf20129"
+      },
+      "model.safetensors": {
+        "size_bytes": 4232105984
+      },
+      "modules.json": {
+        "size_bytes": 115,
+        "sha256": "ec2633e5f91d4c924a881ae67fdc592dd422b87822b4e8b3e15cd621bc053053"
+      },
+      "tokenizer.json": {
+        "size_bytes": 33384387,
+        "sha256": "f5b325224482ec441ec5fbe2a5ac08c3758e0f9605f6e54368e31f736fcfb01d"
+      },
+      "tokenizer_config.json": {
+        "size_bytes": 772,
+        "sha256": "91605e4321058aa54733deaab787f60ea6a71a64906bd871fe6973216e6001f3"
+      }
+    }
+  },
+  "dtype": "float32",
+  "device": "cuda",
+  "device_name": "NVIDIA H100 80GB HBM3 MIG 3g.40gb",
+  "torch": "2.8.0+cu129",
+  "transformers": "5.3.0",
+  "cases": {
+    "choice": {
+      "native_margins": [
+        -1.0986928939819336,
+        -3.8811302185058594,
+        -5.3604512214660645
+      ],
+      "native_single_margins": [
+        -1.0987014770507812,
+        -3.881131649017334,
+        -5.360454559326172
+      ],
+      "native_batch_variation": 0.00000858306884765625,
+      "backend_margins": [
+        -1.0986928939819336,
+        -3.8811302185058594,
+        -5.3604512214660645
+      ],
+      "native_backend_max_margin_diff": 0,
+      "native_backend_max_probability_diff": 0,
+      "batch1_backend_margin_diff": 0.000003814697265625,
+      "batch1_backend_probability_diff": 3.939555892618074e-7,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.9293810064209868,
+              "shipping": 0.05751705172215063,
+              "billing": 0.013101941856862547
+            },
+            "confidence": 0.736839462626461,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 373,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.9293810064209868,
+              "shipping": 0.05751705172215063,
+              "billing": 0.013101941856862547
+            },
+            "confidence": 0.736839462626461,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 373,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.9293810064209868,
+              "shipping": 0.05751705172215063,
+              "billing": 0.013101941856862547
+            },
+            "confidence": 0.736839462626461,
+            "choice": "returns"
+          }
+        },
+        "usage": {
+          "input_tokens": 373,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.34115767401190555,
+              "shipping": 0.39115039101157933,
+              "billing": 0.26769193497651517
+            },
+            "confidence": 0.010716366934821253,
+            "choice": "shipping"
+          }
+        },
+        "usage": {
+          "input_tokens": 364,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        -5.087643623352051,
+        -4.950896263122559,
+        -5.330151557922363
+      ]
+    },
+    "score": {
+      "native_margins": [
+        -3.452791929244995,
+        -2.8109207153320312,
+        -2.97320556640625
+      ],
+      "native_single_margins": [
+        -3.4527907371520996,
+        -2.8109169006347656,
+        -2.973205804824829
+      ],
+      "native_batch_variation": 0.000003814697265625,
+      "backend_margins": [
+        -3.452791929244995,
+        -2.8109207153320312,
+        -2.97320556640625
+      ],
+      "native_backend_max_margin_diff": 0,
+      "native_backend_max_probability_diff": 0,
+      "batch1_backend_margin_diff": 0.000005245208740234375,
+      "batch1_backend_probability_diff": 0.0000015621858950320977,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.22146240954856947,
+              "1": 0.4207858693474909,
+              "2": 0.3577517211039396
+            },
+            "confidence": 0.029831324482509358,
+            "score": 1.13628931155537,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.22146240954856947,
+              "1": 0.4207858693474909,
+              "2": 0.3577517211039396
+            },
+            "confidence": 0.029831324482509358,
+            "score": 1.13628931155537,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 0,
+            "miss_documents": 3,
+            "encoded_documents": 3
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.22146240954856947,
+              "1": 0.4207858693474909,
+              "2": 0.3577517211039396
+            },
+            "confidence": 0.029831324482509358,
+            "score": 1.13628931155537,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 368,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.2634759717692222,
+              "1": 0.34197878687157873,
+              "2": 0.394545241359199
+            },
+            "confidence": 0.012114215302892695,
+            "score": 1.1310692695899767,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 344,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 3,
+            "hit_documents": 3,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        -4.119736194610596,
+        -3.858949661254883,
+        -3.7159645557403564
+      ]
+    },
+    "noul": {
+      "native_margins": [
+        2.705707550048828,
+        2.01312255859375
+      ],
+      "native_single_margins": [
+        2.705707550048828,
+        2.01312255859375
+      ],
+      "native_batch_variation": 0,
+      "backend_margins": [
+        2.705707550048828,
+        2.0131235122680664
+      ],
+      "native_backend_max_margin_diff": 9.5367431640625e-7,
+      "native_backend_max_probability_diff": 9.913214471524157e-8,
+      "batch1_backend_margin_diff": 9.5367431640625e-7,
+      "batch1_backend_probability_diff": 5.599401975420193e-8,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9373625945244577
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8821680914111244
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 2,
+            "hit_documents": 0,
+            "miss_documents": 2,
+            "encoded_documents": 2
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9373625945244577
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8821680914111244
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 0,
+            "miss_documents": 2,
+            "encoded_documents": 2
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9373625945244577
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.8821680914111244
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9416281129275197
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.7259688056489914
+          }
+        },
+        "usage": {
+          "input_tokens": 292,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 2,
+            "hit_documents": 2,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        2.780776023864746,
+        0.9742650985717773
+      ]
+    },
+    "mixed": {
+      "native_margins": [
+        -5.66781759262085,
+        -4.930591583251953,
+        -5.901826858520508,
+        -3.8234593868255615,
+        -2.641435146331787,
+        -2.814255714416504,
+        1.7208471298217773,
+        0.7525224685668945
+      ],
+      "native_single_margins": [
+        -5.667815208435059,
+        -4.930591583251953,
+        -5.901826858520508,
+        -3.8234589099884033,
+        -2.6414341926574707,
+        -2.814255714416504,
+        1.7208471298217773,
+        0.7525224685668945
+      ],
+      "native_batch_variation": 0.000002384185791015625,
+      "backend_margins": [
+        -5.667818069458008,
+        -4.930594444274902,
+        -5.901823997497559,
+        -3.823457956314087,
+        -2.6414308547973633,
+        -2.8142571449279785,
+        1.7208452224731445,
+        0.7525205612182617
+      ],
+      "native_backend_max_margin_diff": 0.000004291534423828125,
+      "native_backend_max_probability_diff": 0.000001233561021551921,
+      "batch1_backend_margin_diff": 0.00000667572021484375,
+      "batch1_backend_probability_diff": 0.0000014532889627272283,
+      "choice_flips": [],
+      "off": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.25763357944608606,
+              "shipping": 0.5384862519010659,
+              "billing": 0.20388016865284808
+            },
+            "confidence": 0.08344251199638475,
+            "choice": "shipping"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.14276769931859973,
+              "1": 0.4655623038361237,
+              "2": 0.3916699968452766
+            },
+            "confidence": 0.08889103003449417,
+            "score": 1.2489022975266768,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.848237674302382
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.679727668624123
+          }
+        },
+        "usage": {
+          "input_tokens": 1072,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": false,
+            "unique_documents": 8,
+            "hit_documents": 0,
+            "miss_documents": 8,
+            "encoded_documents": 8
+          }
+        }
+      },
+      "cold": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.25763357944608606,
+              "shipping": 0.5384862519010659,
+              "billing": 0.20388016865284808
+            },
+            "confidence": 0.08344251199638475,
+            "choice": "shipping"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.14276769931859973,
+              "1": 0.4655623038361237,
+              "2": 0.3916699968452766
+            },
+            "confidence": 0.08889103003449417,
+            "score": 1.2489022975266768,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.848237674302382
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.679727668624123
+          }
+        },
+        "usage": {
+          "input_tokens": 1072,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 8,
+            "hit_documents": 0,
+            "miss_documents": 8,
+            "encoded_documents": 8
+          }
+        }
+      },
+      "warm": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.25763357944608606,
+              "shipping": 0.5384862519010659,
+              "billing": 0.20388016865284808
+            },
+            "confidence": 0.08344251199638475,
+            "choice": "shipping"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.14276769931859973,
+              "1": 0.4655623038361237,
+              "2": 0.3916699968452766
+            },
+            "confidence": 0.08889103003449417,
+            "score": 1.2489022975266768,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.848237674302382
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.679727668624123
+          }
+        },
+        "usage": {
+          "input_tokens": 1072,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 8,
+            "hit_documents": 8,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "warm_actual_encoder_calls": 0,
+      "changed_state": {
+        "model": "kalm-jev-small",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "probabilities": {
+              "returns": 0.34115675295533116,
+              "shipping": 0.3911510136192394,
+              "billing": 0.2676922334254294
+            },
+            "confidence": 0.010716378554597839,
+            "choice": "shipping"
+          },
+          "bug_severity": {
+            "type": "score",
+            "probabilities": {
+              "0": 0.26347545953431883,
+              "1": 0.341978937356347,
+              "2": 0.3945456031093342
+            },
+            "confidence": 0.012114383978907739,
+            "score": 1.1310701435750152,
+            "legend": {
+              "0": "Cosmetic; no impact to functionality",
+              "1": "Broken or degraded feature, but workaround exists",
+              "2": "Blocking issue; no workaround exists"
+            }
+          },
+          "is_human_escalation": {
+            "type": "noul",
+            "noul": 0.9416281129275197
+          },
+          "is_repeat_contact": {
+            "type": "noul",
+            "noul": 0.7259705131450788
+          }
+        },
+        "usage": {
+          "input_tokens": 1000,
+          "output_tokens": 0
+        },
+        "kalm": {
+          "backend": "transformers",
+          "template_version": "v1",
+          "confidence_method": "normalized_entropy_v1",
+          "calibration": "none",
+          "cache": {
+            "enabled": true,
+            "unique_documents": 8,
+            "hit_documents": 8,
+            "miss_documents": 0,
+            "encoded_documents": 0
+          }
+        }
+      },
+      "changed_state_margins": [
+        -5.087646007537842,
+        -4.950894355773926,
+        -5.330150127410889,
+        -4.119738578796387,
+        -3.858949661254883,
+        -3.7159640789031982,
+        2.780776023864746,
+        0.974273681640625
+      ]
+    }
+  },
+  "padding_max_margin_diff": 0,
+  "passed": true
+}
